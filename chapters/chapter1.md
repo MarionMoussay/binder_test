@@ -18,24 +18,24 @@ id: 1
 
 <exercise id="2" title="Getting Started">
 
-Let's ask some questions about the slides. Whats the correct answer?
+Choisis la bonne réponse : 
 
 <choice>
-<opt text="Answer one">
+<opt text="Mauvaise réponse">
 
-This is not the correct answer.
-
-</opt>
-
-<opt text="Answer two" correct="true">
-
-Good job!
+Tu sais pas lire ?
 
 </opt>
 
-<opt text="Answer three">
+<opt text="ICI C'EST LA BONNE REPONSE" correct="true">
 
-This is not correct either.
+Bravo !
+
+</opt>
+
+<opt text="Une autre mauvaise réponse">
+
+On peut plus rien faire pour toi... 
 
 </opt>
 </choice>
