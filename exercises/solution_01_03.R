@@ -14,4 +14,4 @@ print(mtcars$gear)
 some_var <- length(mtcars)
 
 # Uncomment this to see the plot
-# print(qplot(mpg, data=mtcars, geom="density", fill=gear, alpha=I(.5)))
+print(qplot(mpg, data=mtcars, geom="density", fill=gear, alpha=I(.5)))
