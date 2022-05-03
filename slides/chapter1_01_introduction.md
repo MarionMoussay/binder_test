@@ -30,7 +30,7 @@ Notes: Some more notes go here
 
 ---
 
-# Let's practice!
+# Dernier slide!
 
 Notes: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tristique
 libero at est congue, sed vestibulum tortor laoreet. Aenean egestas massa non
