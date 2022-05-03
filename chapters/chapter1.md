@@ -1,5 +1,5 @@
 ---
-title: 'Chapter 1: Getting started'
+title: 'Chapter 1: c'est le chapitre 1'
 description:
   'This chapter will teach you about many cool things and introduce you to the
   most important concepts of the course.'
