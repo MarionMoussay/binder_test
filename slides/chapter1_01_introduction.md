@@ -2,6 +2,8 @@
 type: slides
 ---
 
+---
+
 # Introduction
 
 The main objective of this tutorial is to allow you to manipulate some R code applied to the analysis of sensory data.
@@ -12,7 +14,7 @@ You will be asked (1) to answer to all the questions of this tutorial, (2) to sa
 
 Don't hesitate to use the hint button, it should give you suggestions in order to answer the questions more easily.
 
-
+---
 
 # The chocolates data
 
@@ -22,7 +24,7 @@ The data used here refer to six varieties of chocolates sold in France.
 
 - For the hedonic data: each chocolate was evaluated on a structured scale from 0 to 10, by 222 consumers, according to their liking (0) or disliking (10);
 
-
+---
 
 # Dernier slide!
 
