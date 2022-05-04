@@ -16,7 +16,7 @@ id: 1
 
 </exercise>
 
-<exercise id="2" title="Introducing the sensochoc dataset">
+<exercise id="2" title="Introducing the *sensochoc* dataset">
 
 ### Part 1 : 
 
