@@ -1,5 +1,5 @@
 ---
-title: 'Chapter 1: chap1'
+title: 'How to describe a set of products'
 description:
   'This chapter will teach you about many cool things and introduce you to the
   most important concepts of the course.'
@@ -16,41 +16,10 @@ id: 1
 
 </exercise>
 
-<exercise id="2" title="Getting Started">
+<exercise id="2" title="Introducing the _sensochoc_ dataset">
 
-Choisis la bonne réponse : 
+1. Please notice that for this tutorial, you are in a controlled environment and everything has been downloaded for you, the datasets and the different packages you need ; the packages have been installed as well. Remember, the first thing you have to think of, before analysing your data, is the different packages you might need. For this tutorial, we will use the _SensoMineR_ package. This package is a very useful package as it can analyse many different types of sensory data, from QDA to holistic approaches such as sorting or napping data. In a real life situation you would have to import the dataset, and to install and load the packages. To install, then load a package, you can refer to the code below.
 
-<choice>
-<opt text="Mauvaise réponse">
-
-Tu sais pas lire ?
-
-</opt>
-
-<opt text="ICI C'EST LA BONNE REPONSE" correct="true">
-
-Bravo !
-
-</opt>
-
-<opt text="Une autre mauvaise réponse">
-
-On peut plus rien faire pour toi... 
-
-</opt>
-</choice>
-
-</exercise>
-
-<exercise id="3" title="First steps">
-
-This is a code exercise. The content can be formatted in simple Markdown – so
-you can have **bold text**, `code` or [links](https://spacy.io) or lists, like
-the one for the instructions below.
-
-- These are instructions and they can have bullet points.
-- The code block below will look for the files `exc_01_03`, `solution_01_03` and
-  `test_01_03` in `/exercises`.
 
 <codeblock id="01_03">
 
