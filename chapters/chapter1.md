@@ -1,5 +1,5 @@
 ---
-title: 'How to describe a set of products'
+title: 'Lesson 1 : How to describe a set of products'
 description:
   'This chapter will teach you about many cool things and introduce you to the
   most important concepts of the course.'
@@ -40,5 +40,22 @@ Before loading a package, you first have to install it. To do so, use the **inst
 As you can see, all you have to do to load a package is to apply the **library** function to the package, just like this `library(name_package)`.
 
 </codeblock>
+
+4. Change the _maxsum_ argument of the **summary** function (to get some help, write `?summary`). As you can see, this argument indicates the number of levels to be displayed.
+<codeblock id="02_02">
+
+Before loading a package, you first have to install it. To do so, use the **install.packages** function, just like this `install.packages("name_package")`.
+
+As you can see, all you have to do to load a package is to apply the **library** function to the package, just like this `library(name_package)`.
+
+</codeblock>
+
+</exercise>
+
+
+<exercise id="3" title="Analysing the sensochoc dataset from a univariate point of view">
+
+# Manually with analysis of variance (ANOVA)
+
 
 </exercise>
