@@ -16,7 +16,7 @@ id: 1
 
 </exercise>
 
-<exercise id="2" title="Introducing the *sensochoc* dataset">
+<exercise id="2" title="Introducing the sensochoc dataset">
 
 ### Part 1 : 
 
@@ -78,5 +78,71 @@ Let's do the same thing with the sensory descriptor _CocoaA_.
 <codeblock id="02_03">
 </codeblock>
 
+# Manually with analysis of variance (ANOVA)
+
+### Part 1 : 
+
+The **decat** function is one of the most important and useful function of the _SensoMineR_ package. This function is designed to point out the variables that are the most characteristic of a set of products. The idea behind this function is to perform all the analyses of variance for all the sensory descriptors, for a given model. Then the function summarises all the results that you have seen previously for a categorical variable of interest, usually the product effect. The main arguments you need to specify are the name of the dataset, the model, the position of the first sensory descriptor in your dataset. Notice that the dataset has to be structured the following way: a block of factors, then a block of sensory descriptors. Run the **decat** function on the _sensochoc_ dataset, save the results in an object named _resdecat_, identify the different components of this object with the function **names**. You can also have a look at the help page of the **decat** function, by typing `?resdecat`.
+
+<codeblock id="03_03">
+Notice that the dataset has to be structured the following way: a block of factors, then a block of sensory descriptors.
+</codeblock>
+
+### Part 2 : 
+
+Let's have a look at the component named _tabF_.
+
+<codeblock id="04_03">
+Remember to have a look at one particular component you have to write the following way: `result$name_component`.
+</codeblock>
+
+### Part 3 : 
+
+Let's have a look at the component named _tabT_.
+
+<codeblock id="05_03">
+Remember to have a look at one particular component you have to write the following way: `result$name_component`.
+</codeblock>
+
+### Part 4 : 
+
+Let's now have a look at the component _restT_. It's a very important component as it provides an automatic description of your products.
+
+<codeblock id="06_03">
+Remember to have a look at one particular component you have to write the following way: `result$name_component`.
+</codeblock>
+
+### Part 5 : 
+
+Finally, let's have a look at the component named _adjmean_. You will see that this component is really important to get a multivariate description of the products. Store this component in an object named _senso.average_. Run the **summary** function on this object, as well as the **rownames** and the **colnames** functions.
+
+<codeblock id="06_03">
+Remember to have a look at one particular component you have to write the following way: `result$name_component`.
+</codeblock>
+
+</exercise>
+
+
+<exercise id="4" title="Analysing the sensochoc dataset from a multivariate point of view">
+
+# With Principle Component Analysis
+# With Principle Component Analysis and confidence ellipses
+
+
+</exercise>
+
+<exercise id="5" title="Analysing the hedochoc dataset from a product point of view">
+
+# From a univariate point of view with analysis of variance (ANOVA)
+# From a multivariate point of view with PCA
+
+</exercise>
+
+</exercise>
+
+<exercise id="6" title="Analysing the hedochoc dataset from a panelist point of view">
+
+# First with PCA and the _hedochoc_ dataset
+# Then with hierarchical clustering
 
 </exercise>
