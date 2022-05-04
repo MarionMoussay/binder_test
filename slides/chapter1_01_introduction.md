@@ -4,29 +4,23 @@ type: slides
 
 # Introduction
 
-Notes: Text at the end of a slide prefixed like this will be displayed as
-speaker notes on the side. Slides can be separated with a divider: ---.
+The main objective of this tutorial is to allow you to manipulate some R code applied to the analysis of sensory data.
+
+In this tutorial, you will experience what could be called a controlled environment. In this environment, we hope that you will be able to learn R and the analysis of sensory data without too many problems. 
+
+You will be asked (1) to answer to all the questions of this tutorial, (2) to save the code that you will generate, and of course (3) to comment this code, just in case you would forget what it means in a couple of days.
+
+Don't hesitate to use the hint button, it should give you suggestions in order to answer the questions more easily.
 
 ---
 
-# This is a slide
+# The chocolates data
 
-```r
-# Print something
-print("Hello world", quote = FALSE)
-```
+The data used here refer to six varieties of chocolates sold in France.
 
-```out
-Hello world
-```
+- For the sensory description: each chocolate was evaluated twice by 29 panellists according to 14 sensory descriptors;
 
-- Slides can have code, bullet points, tables and pretty much all other Markdown
-  elements.
-- This is another bullet point.
-
-<img src="profile.jpg" alt="This image is in /static" width="25%">
-
-Notes: Some more notes go here
+- For the hedonic data: each chocolate was evaluated on a structured scale from 0 to 10, by 222 consumers, according to their liking (0) or disliking (10);
 
 ---
 
