@@ -2,9 +2,13 @@
 type: slides
 ---
 
----
+
 
 # Introduction
+
+---
+
+# Main objective
 
 The main objective of this tutorial is to allow you to manipulate some R code applied to the analysis of sensory data.
 
@@ -26,10 +30,6 @@ The data used here refer to six varieties of chocolates sold in France.
 
 ---
 
-# Dernier slide!
+# Let's practice !
 
-Notes: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tristique
-libero at est congue, sed vestibulum tortor laoreet. Aenean egestas massa non
-commodo consequat. Curabitur faucibus, sapien vitae euismod imperdiet, arcu erat
-semper urna, in accumsan sapien dui ac mi. Pellentesque felis lorem, semper nec
-velit nec, consectetur placerat enim.
+Notes: The next point allows to practice on the dataset introduced.
