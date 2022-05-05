@@ -29,7 +29,7 @@ The data used here refer to six varieties of chocolates sold in France.
 
 - For the hedonic data: each chocolate was evaluated on a structured scale from 0 to 10, by 222 consumers, according to their liking (0) or disliking (10);
 
-```r
+```out
 
 $$X_{t} = \hat m_{t}+ \hat s_{t}+ n_{t} + BB(\sigma^{2}= 1675)$$
 
