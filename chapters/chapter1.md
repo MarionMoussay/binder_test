@@ -93,7 +93,7 @@ Among these images, which represents a histogram ?
 
 <choice>
 
-<opt img=![](https://github.com/MarionMoussay/binder_test/blob/master/image/sensominer.png?raw=true)>
+<opt fig=![](https://github.com/MarionMoussay/binder_test/blob/master/image/sensominer.png?raw=true)>
 
 Summarization is used with summary().
 
