@@ -94,6 +94,11 @@ Plot the histogram of the variable _CocoaA_.
 
 # Manually with analysis of variance (ANOVA)
 
+### Just introduce : 
+
+<html><center>
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=CS_BKChyPuc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center></html>
+
 ### Question 1 :
 
 Let's have a look at the sensory descriptor _Sweetness_. The sweetness of a chocolate can be explained by the chocolate itself, or by the person who has tasted the chocolate. These assumptions can be assessed by using an analysis of variance, a method designed to identify the sources of variability of a continuous variable. In other words, with an analysis of variance, we want to explain a continuous variable by some categorical variables (our sources of variability). In our case, the model we're going to test is the _Sweetness_ according to the _Product_ and the _Panelist_. To do so, we're going to use the **AovSum** function of the _FactoMineR_ package. All you need to specify is the model, then the name of the dataset. In the example, we store the results in an object named _res_: to do so we use that very important sign `<-`, on its left the name of the object where we want to store, on its right the results of the function. Use the **names** function to get a list of the different results produced by the **AovSum** function. Then take a look at each one of these results.
