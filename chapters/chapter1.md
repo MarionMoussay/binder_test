@@ -56,7 +56,7 @@ It's just a no.
 
 </opt>
 
-<opt text="First observations">
+<opt text="First observations" correct="true">
 
 Good job !
 
