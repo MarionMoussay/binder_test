@@ -28,7 +28,13 @@ The data used here refer to six varieties of chocolates sold in France.
 - For the sensory description: each chocolate was evaluated twice by 29 panellists according to 14 sensory descriptors;
 
 - For the hedonic data: each chocolate was evaluated on a structured scale from 0 to 10, by 222 consumers, according to their liking (0) or disliking (10);
+
+```r
+
 $$X_{t} = \hat m_{t}+ \hat s_{t}+ n_{t} + BB(\sigma^{2}= 1675)$$
+
+```
+
 ---
 
 # Let's practice !
