@@ -29,6 +29,11 @@ The data used here refer to six varieties of chocolates sold in France.
 
 - For the hedonic data: each chocolate was evaluated on a structured scale from 0 to 10, by 222 consumers, according to their liking (0) or disliking (10);
 
+| | Elections don't matter | Gay rights are very important | Crime is very important |
+| --- | --- | --- | --- |
+| Did not vote   | 55.3%                  | 17.0%                     | 66.3%  |                
+| Voted          | 34.1%                  | 25.3%                     | 57.6%  |   
+
 ---
 
 # Test 
@@ -57,6 +62,8 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1
 ```
 
 ---
+
+
 
 # Let's practice !
 
