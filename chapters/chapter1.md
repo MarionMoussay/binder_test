@@ -80,6 +80,13 @@ Change the _maxsum_ argument of the **summary** function (to get some [help](htt
 <codeblock id="04_02">
 </codeblock>
 
+### Question 5 :
+
+Plot the histogram of the variable _CocoaA_.
+
+<codeblock id="05_02">
+</codeblock>
+
 </exercise>
 
 

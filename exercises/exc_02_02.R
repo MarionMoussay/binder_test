@@ -1,4 +1,3 @@
-library(SensoMineR)
-
 data(chocolates)
-head(sensochoc)
+
+____(sensochoc)
