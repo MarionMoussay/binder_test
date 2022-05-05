@@ -87,32 +87,6 @@ Plot the histogram of the variable _CocoaA_.
 <codeblock id="05_02">
 </codeblock>
 
-### Question 6 : 
-
-Among these images, which represents a histogram ?
-
-<choice>
-
-<opt fig=![](https://github.com/MarionMoussay/binder_test/blob/master/image/sensominer.png?raw=true)>
-
-Summarization is used with summary().
-
-</opt>
-
-<opt text="Clustering">
-
-It's just a no.
-
-</opt>
-
-<opt text="First observations" correct="true">
-
-Good job !
-
-</opt>
-
-</choice>
-
 </exercise>
 
 
