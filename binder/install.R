@@ -1,3 +1,5 @@
 install.packages("dplyr")
 install.packages("ggplot2")
 install.packages("SensoMineR")
+install.packages("devtools")
+devtools::install_github("Sebastien-Le/SensoLearnR")
