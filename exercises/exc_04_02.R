@@ -1,1 +1,4 @@
-summary(sensochoc, maxsum = ___)
+library(SensoMineR)
+
+nb <- ____
+summary(sensochoc, maxsum = nb)
