@@ -1,2 +1,3 @@
 data(chocolates)
+
 head(sensochoc)

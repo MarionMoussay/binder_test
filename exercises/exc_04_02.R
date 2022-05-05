@@ -1,2 +1,1 @@
-data(chocolates)
-summary(sensochoc, maxsum = 10)
+summary(sensochoc, maxsum = ___)

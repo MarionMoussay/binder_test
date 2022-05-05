@@ -61,64 +61,7 @@ Change the _maxsum_ argument of the **summary** function (to get some help, writ
 
 # Manually with analysis of variance (ANOVA)
 
-### Part 1 :
-
-Let's have a look at the sensory descriptor _Sweetness_. The sweetness of a chocolate can be explained by the chocolate itself, or by the person who has tasted the chocolate. These assumptions can be assessed by using an analysis of variance, a method designed to identify the sources of variability of a continuous variable. In other words, with an analysis of variance, we want to explain a continuous variable by some categorical variables (our sources of variability). In our case, the model we're going to test is the _Sweetness_ according to the _Product_ and the _Panelist_. To do so, we're going to use the **AovSum** function of the _FactoMineR_ package. All you need to specify is the model, then the name of the dataset. In the example, we store the results in an object named _res_: to do so we use that very important sign `<-`, on its left the name of the object where we want to store, on its right the results of the function. Use the **names** function to get a list of the different results produced by the **AovSum** function. Then take a look at each one of these results.
-
-<codeblock id="01_03">
-
-As you can see, _res_ is made up of two components. The first one is related to the variables of the model, the second one is related to the levels (or categories) of the variables of the model. You can have an access of each component by using the `$` sign: `res$name_component`.
-
-</codeblock>
-
-### Part 2 : 
-
-Let's do the same thing with the sensory descriptor _CocoaA_.
-
-<codeblock id="02_03">
-</codeblock>
-
 # Manually with analysis of variance (ANOVA)
-
-### Part 1 : 
-
-The **decat** function is one of the most important and useful function of the _SensoMineR_ package. This function is designed to point out the variables that are the most characteristic of a set of products. The idea behind this function is to perform all the analyses of variance for all the sensory descriptors, for a given model. Then the function summarises all the results that you have seen previously for a categorical variable of interest, usually the product effect. The main arguments you need to specify are the name of the dataset, the model, the position of the first sensory descriptor in your dataset. Notice that the dataset has to be structured the following way: a block of factors, then a block of sensory descriptors. Run the **decat** function on the _sensochoc_ dataset, save the results in an object named _resdecat_, identify the different components of this object with the function **names**. You can also have a look at the help page of the **decat** function, by typing `?resdecat`.
-
-<codeblock id="03_03">
-Notice that the dataset has to be structured the following way: a block of factors, then a block of sensory descriptors.
-</codeblock>
-
-### Part 2 : 
-
-Let's have a look at the component named _tabF_.
-
-<codeblock id="04_03">
-Remember to have a look at one particular component you have to write the following way: `result$name_component`.
-</codeblock>
-
-### Part 3 : 
-
-Let's have a look at the component named _tabT_.
-
-<codeblock id="05_03">
-Remember to have a look at one particular component you have to write the following way: `result$name_component`.
-</codeblock>
-
-### Part 4 : 
-
-Let's now have a look at the component _restT_. It's a very important component as it provides an automatic description of your products.
-
-<codeblock id="06_03">
-Remember to have a look at one particular component you have to write the following way: `result$name_component`.
-</codeblock>
-
-### Part 5 : 
-
-Finally, let's have a look at the component named _adjmean_. You will see that this component is really important to get a multivariate description of the products. Store this component in an object named _senso.average_. Run the **summary** function on this object, as well as the **rownames** and the **colnames** functions.
-
-<codeblock id="06_03">
-Remember to have a look at one particular component you have to write the following way: `result$name_component`.
-</codeblock>
 
 </exercise>
 
