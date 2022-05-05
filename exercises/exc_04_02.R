@@ -1,4 +1,4 @@
 library(SensoMineR)
 
 nb <- ____
-summary(sensochoc, maxsum = nb)
+summary(chocolates, maxsum = nb)
