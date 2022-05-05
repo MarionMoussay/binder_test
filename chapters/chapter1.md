@@ -42,6 +42,28 @@ Now that the _SensoMineR_ package has been installed, we're going to play with t
 <codeblock id="02_02">
 </codeblock>
 
+What does this object refer to ? 
+<choice>
+<opt text="Summarization">
+
+Summarization is used with summary().
+
+</opt>
+
+<opt text="Clustering">
+
+It's just a no.
+
+</opt>
+
+<opt text="First observations">
+
+Good job !
+
+</opt>
+
+</choice>
+
 ### Question 3 : 
 
 The **summary** function is one of the most important function in R. For example, with the **summary** function, you can check that your dataset has been well imported. You can also display the important features of your dataset, variable per variable. This is what we're going to do.
