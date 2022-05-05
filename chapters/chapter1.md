@@ -43,7 +43,9 @@ Now that the _SensoMineR_ package has been installed, we're going to play with t
 </codeblock>
 
 What does this object refer to ? 
+
 <choice>
+
 <opt text="Summarization">
 
 Summarization is used with summary().
