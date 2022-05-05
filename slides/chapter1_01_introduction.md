@@ -32,7 +32,11 @@ The data used here refer to six varieties of chocolates sold in France.
 | | Elections don't matter | Gay rights are very important | Crime is very important |
 | --- | --- | --- | --- |
 | Did not vote   | 55.3%                  | 17.0%                     | 66.3%  |                
-| Voted          | 34.1%                  | 25.3%                     | 57.6%  |   
+| Voted          | 34.1%                  | 25.3%                     | 57.6%  |  
+
+
+
+$$X_{t} = \hat m_{t}+ \hat s_{t}+ n_{t} + BB(\sigma^{2}= 1675)$$
 
 ---
 
