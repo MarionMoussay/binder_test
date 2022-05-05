@@ -17,6 +17,7 @@ In this tutorial, you will experience what could be called a controlled environm
 You will be asked (1) to answer to all the questions of this tutorial, (2) to save the code that you will generate, and of course (3) to comment this code, just in case you would forget what it means in a couple of days.
 
 Don't hesitate to use the hint button, it should give you suggestions in order to answer the questions more easily.
+![](https://github.com/MarionMoussay/binder_test/blob/master/image/perception-sensorielle.jpg?raw=true)
 
 ---
 
