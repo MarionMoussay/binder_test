@@ -1,0 +1,6 @@
+library(dplyr)
+library(ggplot2)
+library(SensoMineR)
+library(YesSiR)
+library(githubinstall)
+githubinstall("textnets")

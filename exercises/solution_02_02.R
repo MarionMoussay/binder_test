@@ -1,3 +1,1 @@
-data(chocolates)
-
 head(sensochoc)

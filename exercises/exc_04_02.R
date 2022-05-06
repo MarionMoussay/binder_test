@@ -1,2 +1,2 @@
 nb <- ____
-summary(sensochoc, maxsum = nb)
+summary(______, maxsum = nb)

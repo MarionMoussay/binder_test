@@ -16,18 +16,15 @@ id: 1
 
 </exercise>
 
-<exercise id="2" title="Introducing the sensochoc dataset">
+<exercise id="2" title="Introducing on dataset">
 
 ### Question 1 : 
 
-![formula](https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1)
+![](https://github.com/MarionMoussay/binder_test/blob/master/image/sensominer.png?raw=true)
 
 Please notice that for this tutorial, you are in a controlled environment and everything has been downloaded for you, the datasets and the different packages you need ; the packages have been installed as well. Remember, the first thing you have to think of, before analysing your data, is the different packages you might need. For this tutorial, we will use the _SensoMineR_ package. This package is a very useful package as it can analyse many different types of sensory data, from QDA to holistic approaches such as sorting or napping data. In a real life situation you would have to import the dataset, and to install and load the packages. To install, then load a package, you can refer to the code below.
 
-![](https://github.com/MarionMoussay/binder_test/blob/master/image/sensominer.png?raw=true)
-
-
-<codeblock id="01_02">
+<codeblock id="01_02_01">
 
 Before loading a package, you first have to install it. To do so, use the **install.packages** function, just like this `install.packages("name_package")`.
 
@@ -35,11 +32,22 @@ As you can see, all you have to do to load a package is to apply the **library**
 
 </codeblock>
 
-Thanks to the code above, you can load the four packages _dplyr_, _xlsx_, _ggplot2_, and _SensoMineR_.
+If you want, you can import your own dataset. 
+
+<codeblock id="01_02_02">
+
+</codeblock>
+
+For this tuto, the datasets *chocolates* from _SensoMineR_ is used in the correction.
+
+<codeblock id="01_02_03">
+
+</codeblock>
+
 
 ### Question 2 : 
 
-Now that the _SensoMineR_ package has been installed, we're going to play with the sensory description of the chocolates. To do so, let's have a look at the _sensochoc_ dataset. Before that, we're going to load the _chocolates_ data that are included in the _SensoMineR_ package as examples. To do so, we're going to use the **data** function. Then, we're going to have a look at the first lines of the _sensochoc_ dataset, which corresponds to the sensory description of the chocolates. To do so, we're going to use the **head** function.
+Now that the _SensoMineR_ package has been installed, we're going to play with the sensory description. To do so, let's have a look at the first lines of the dataset. To do so, we're going to use the **head** function.
 
 <codeblock id="02_02">
 </codeblock>
@@ -77,22 +85,15 @@ The **summary** function is one of the most important function in R. For example
 
 ### Question 4 :
 
-Change the _maxsum_ argument of the **summary** function (to get some [help](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/summary). As you can see, this argument indicates the number of levels to be displayed.
+Change the _maxsum_ argument of the **summary** function (to get some [help](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/summary)). As you can see, this argument indicates the number of levels to be displayed.
 
 <codeblock id="04_02">
-</codeblock>
-
-### Question 5 :
-
-Plot the histogram of the variable _CocoaA_.
-
-<codeblock id="05_02">
 </codeblock>
 
 </exercise>
 
 
-<exercise id="3" title="Analysing the sensochoc dataset from a univariate point of view">
+<exercise id="3" title="Analysing the dataset from a univariate point of view">
 
 # Manually with analysis of variance (ANOVA)
 
@@ -100,6 +101,8 @@ Plot the histogram of the variable _CocoaA_.
 
 <html><center>
 <iframe width="560" height="315" src="https://www.youtube.com/watch?v=CS_BKChyPuc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center></html>
+
+For this part, we use the dataset *sensochoc* from _SensoMineR_.
 
 ### Question 1 :
 
