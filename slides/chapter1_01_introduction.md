@@ -65,6 +65,8 @@ s(x2) 3.00 2.88    1.00    0.52
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1
 ```
 
+![formula](https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1)
+
 ---
 
 
