@@ -1,5 +1,6 @@
 install.packages("dplyr")
 install.packages("ggplot2")
 install.packages("SensoMineR")
-install.packages("devtools")
 install.packages("githubinstall")
+library(githubinstall)
+githubinstall("textnets")
