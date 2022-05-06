@@ -56,7 +56,7 @@ Now that the _SensoMineR_ package has been installed, we're going to play with t
 
 What does this object refer to ? 
 
-<choice>
+<choice id=1>
 
 <opt text="Summarization">
 
