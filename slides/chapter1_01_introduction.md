@@ -29,45 +29,6 @@ The data used here refer to six varieties of chocolates sold in France.
 
 - For the hedonic data: each chocolate was evaluated on a structured scale from 0 to 10, by 222 consumers, according to their liking (0) or disliking (10);
 
-| | Elections don't matter | Gay rights are very important | Crime is very important |
-| --- | --- | --- | --- |
-| Did not vote   | 55.3%                  | 17.0%                     | 66.3%  |                
-| Voted          | 34.1%                  | 25.3%                     | 57.6%  |  
-
-
-
----
-
-# Test 
-
-```r
-gam.check(mod)
-```
-
-```out
-Method: REML   Optimizer: outer newton
-full convergence after 9 iterations.
-Gradient range [-0.0001467222,0.00171085]
-(score 784.6012 & scale 2.868607).
-Hessian positive definite, eigenvalue range [0.00014,198.5]
-Model rank =  7 / 7 
-
-Basis dimension (k) checking results. Low p-value
-(k-index<1) may indicate that k is too low, especially
-if edf is close to k'.
-
-        k'  edf k-index p-value    
-s(x1) 3.00 1.00    0.35  <2e-16 ***
-s(x2) 3.00 2.88    1.00    0.52    
- ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1
-```
-<img src="https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1">
-
----
-
-
-
 # Let's practice !
 
 Notes: The next point allows to practice on the dataset introduced.
