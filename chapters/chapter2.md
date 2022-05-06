@@ -8,3 +8,5 @@ next: null
 type: chapter
 id: 2
 ---
+
+Be patient, it's coming...

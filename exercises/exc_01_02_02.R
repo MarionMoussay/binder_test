@@ -1,4 +1,4 @@
-# With a package CRAN
+# With a CRAN package
 install.packages("palmerpenguins")
 
 # With github

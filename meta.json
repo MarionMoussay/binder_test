@@ -17,8 +17,8 @@
     },
     "showProfileImage": true,
     "footerLinks": [
-        { "text": "Website", "url": "https://spacy.io" },
-        { "text": "Source", "url": "https://github.com/ines/course-starter-r" },
+        { "text": "Website", "url": "https://www.institut-agro-rennes-angers.fr/" },
+        { "text": "Source", "url": "https://github.com/MarionMoussay/binder_test" },
         { "text": "Built with ♥", "url": "https://github.com/ines/course-starter-r" }
     ],
     "theme": "#de7878"

@@ -32,13 +32,15 @@ As you can see, all you have to do to load a package is to apply the **library**
 
 </codeblock>
 
-If you want, you can import your own dataset. 
+If there is the "Attempting to run your code" message, packages is loaded !
+
+If you want, you can import your own dataset for this part.
 
 <codeblock id="01_02_02">
 
 </codeblock>
 
-For this tuto, the datasets *chocolates* from _SensoMineR_ is used in the correction.
+For this tuto, the datasets *chocolates* from _SensoMineR_ is used in the correction. 
 
 <codeblock id="01_02_03">
 
@@ -107,6 +109,8 @@ For this part, we use the dataset *sensochoc* from _SensoMineR_.
 ### Question 1 :
 
 Let's have a look at the sensory descriptor _Sweetness_. The sweetness of a chocolate can be explained by the chocolate itself, or by the person who has tasted the chocolate. These assumptions can be assessed by using an analysis of variance, a method designed to identify the sources of variability of a continuous variable. In other words, with an analysis of variance, we want to explain a continuous variable by some categorical variables (our sources of variability). In our case, the model we're going to test is the _Sweetness_ according to the _Product_ and the _Panelist_. To do so, we're going to use the **AovSum** function of the _FactoMineR_ package. All you need to specify is the model, then the name of the dataset. In the example, we store the results in an object named _res_: to do so we use that very important sign `<-`, on its left the name of the object where we want to store, on its right the results of the function. Use the **names** function to get a list of the different results produced by the **AovSum** function. Then take a look at each one of these results.
+
+_PB WITH THE PACKAGE CAR_
 
 <codeblock id="01_03">
 As you can see, _res_ is made up of two components. The first one is related to the variables of the model, the second one is related to the levels (or categories) of the variables of the model. You can have an access of each component by using the `$` sign: `res$name_component`.
