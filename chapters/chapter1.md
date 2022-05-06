@@ -32,7 +32,7 @@ As you can see, all you have to do to load a package is to apply the **library**
 
 </codeblock>
 
-If there is the "Attempting to run your code" message, packages is loaded !
+If there is the message "Attempting to run your code", packages are loaded !
 
 If you want, you can import your own dataset for this part.
 
