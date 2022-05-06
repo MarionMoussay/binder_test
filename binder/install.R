@@ -2,9 +2,8 @@ install.packages("dplyr")
 install.packages("ggplot2")
 install.packages("SensoMineR")
 
+install.packages("githubinstall")
+library(githubinstall)
+githubinstall("YesSiR")
 
 
-
-install.packages("remotes")
-library("remotes")
-remotes::install_github("Sebastien-Le/YesSiR", dependencies = TRUE)
