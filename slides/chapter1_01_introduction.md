@@ -36,8 +36,6 @@ The data used here refer to six varieties of chocolates sold in France.
 
 
 
-$$X_{t} = \hat m_{t}+ \hat s_{t}+ n_{t} + BB(\sigma^{2}= 1675)$$
-
 ---
 
 # Test 
@@ -64,8 +62,7 @@ s(x2) 3.00 2.88    1.00    0.52
  ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1
 ```
-
-![formula](https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1)
+<img src="https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1">
 
 ---
 
