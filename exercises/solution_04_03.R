@@ -1,1 +1,0 @@
-resdecat$tabF

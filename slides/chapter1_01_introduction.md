@@ -8,18 +8,14 @@ type: slides
 
 ---
 
-## Main objective
+## Historique et proposition d'analyse 
 
-The main objective of this tutorial is to allow you to manipulate some R code applied to the analysis of sensory data.
+Une des méthodes descriptives multidimensionnelles est l'analyse en composantes principales. Elle propose à partir d'un tableau de données de _p_ variables quantitatives pour _n_ individus des représentations géométriques. Elles permettent de voir s'il existe une structure non connue à priori sur cet ensemble d'individus. On cherche donc à distinguer des groupes d'individus dans l'ensemble de l'échantillon qui reposent sur une similarité définie au préalable. Du point de vue des variables, l'objectif est de définir celles qui sont corrélées ou non entre elles. 
 
-In this tutorial, you will experience what could be called a controlled environment. In this environment, we hope that you will be able to learn R and the analysis of sensory data without too many problems. 
-
-You will be asked (1) to answer to all the questions of this tutorial, (2) to save the code that you will generate, and of course (3) to comment this code, just in case you would forget what it means in a couple of days.
-
-Don't hesitate to use the hint button, it should give you suggestions in order to answer the questions more easily.
+Les interprétations qui peuvent être issues d'une ACP reposent sur l'origine du recueil de données et du problème qui est posé au début de l'étude. L'ACP ne représente pas une fin en soi mais elle permet de mieux connaître les données sur lesquelles on travaille et à détecter d'éventuelles valeurs aberrantes ou encore à formuler des hypothèses qui peuvent être ensuite étudiées sur la base d'autres outils statistiques. 
 
 
-<center><img src="/perception-sensorielle.png" alt="Illustration d'un objet Doc contenant trois tokens" width="25%" /></center>
+<center><img src="/echantillonnage.jpeg" alt="Echantillonnage" width="25%" /></center>
 
 ---
 
