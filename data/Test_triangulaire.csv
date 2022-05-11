@@ -1,0 +1,19 @@
+Experience;Produit X;Produit Y;Produit Z;Reponse
+Paneliste1.Test1;1;2;1;X
+Paneliste1.Test2;3;2;2;Y
+Paneliste1.Test3;3;1;1;Y
+Paneliste2.Test1;1;1;2;X
+Paneliste2.Test2;3;3;2;Z
+Paneliste2.Test3;2;2;4;X
+Paneliste3.Test1;1;4;1;Y
+Paneliste3.Test2;1;4;4;X
+Paneliste3.Test3;2;4;4;Z
+Paneliste4.Test1;2;4;2;X
+Paneliste4.Test2;4;3;3;X
+Paneliste4.Test3;3;2;3;Z
+Paneliste5.Test1;1;2;2;X
+Paneliste5.Test2;4;4;3;Y
+Paneliste5.Test3;3;3;1;X
+Paneliste6.Test1;4;3;4;Z
+Paneliste6.Test2;1;1;4;X
+Paneliste6.Test3;3;1;3;Y
