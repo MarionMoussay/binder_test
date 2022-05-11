@@ -41,7 +41,7 @@ ANOVA is used to define the sensory attributes that structure the product space.
 
 To explain the sensory attribute _Citrus_ (dependent variable) with respect to the main effects _Product_, _Panelist_, _Session_, and their first-order interactions (independent variables), the following ANOVA model is considered:
 
-![formula](https://render.githubusercontent.com/render/math?math=Citrus_{iks}\sim\mu+\alpha_{i}+\beta_{k}+\gamma_{s}+\alpha\beta_{ik}+\alpha\gamma_{is}+\beta\gamma_{ks}+\epsilon_{iks})
+![formula](https://render.githubusercontent.com/render/math?math=Citrus_{iks}\sim\mu\+\alpha_{i}+\beta_{k}+\gamma_{s}+\alpha\beta_{ik}+\alpha\gamma_{is}+\beta\gamma_{ks}+\epsilon_{iks})
  
 where
 
@@ -89,6 +89,51 @@ As expressed by the p-values that are singularly small, products have been extre
 </exercise>
 
 <exercise id="4" title="How can I get a sensory profile for each product?">
+
+Now that the list of sensory attributes differentiating the products has been defined, the natural continuity consists in defining which products are specific for those attributes. In other words, rather than focusing on the main effects, we are interested in the effects of the levels associated with the factors and their interactions. This new question to answer can be rephrased as: For the sensory attribute _Citrus_, which product can I consider as significantly different (“positively” or “negatively”, in a sense that will be specified latter) from some kind of an average product?
+
+The answer to that question lies in the analysis of the coefficients ![formula](https://render.githubusercontent.com/render/math?math=\alpha_{i},(i = 1, . . . , I)) associated with the _Product_ effect. Such an analysis of the coefficients is done through the Student’s _t-test_, in which the following hypotheses are tested for each product, i.e., for each level of the _Product_ effect:
+
+![formula](https://render.githubusercontent.com/render/math?math=H0 : \alpha_{i}=0) _versus_ ![formula](https://render.githubusercontent.com/render/math?math=H1:\alpha_{i} \ne 0)
+
+To get a unique estimate for each ![formula](https://render.githubusercontent.com/render/math?math=\alpha_{i}), constraints need to be set on them. These constraints are also called _contrasts_, in the statistical jargon. Different contrasts exist, and the one we are choosing here is a very natural one, in the sense that no _a priori_ on the products is considered:
+
+![formula](https://render.githubusercontent.com/render/math?math=\sum_{i=1}^{I}( \alpha_{i}=0))
+
+This contrast consists in testing each product with respect to some kind of an average product, and not with respect to a specific product. Incidentally, the point of view adopted on the contrast also fits with the point of view adopted by PCA, as we will see further on.
+
+To set contrasts, the *options* function is used. This function allows setting up general options, which affect the way R computes and displays its results.
+
+<codeblock id="07_01">
+</codeblock>
+
+To get the results of the t-test, the *summary.lm* function (or more generically, the summary function) is applied to the results of the lm function. In ourcase, this corresponds to applying the *summary.lm* function to `citrus.lm`:
+
+<codeblock id="08_01">
+</codeblock>
+
+The previous output is impossible to interpret, unless we have the correspondence between `Product1, . . . , Product11` and the *levels* of the _Product_ effect. To get this correspondence, the *levels* function is applied to the _variable Product_:
+
+<codeblock id="09_01">
+</codeblock>
+
+Now we know that `Product1` corresponds to _Angel_, `Product2` to _Aromatics Elixir_, . . . , and `Product11` to _Pure Poison_, so the results of our ANOVA can be interpreted. To do so, the products associated with a _p-value_ higher than 0.05 are separated from the products with a _p-value_ lower than 0.05.
+
+For the first ones (_p-value_ > 0.05), the products are not significantly different from the average product regarding the sensory attribute _Citrus_. This is the case for _Aromatics Elixir_, _Chanel N5_, _Cinéma_, _Coco Mademoiselle_, _L’instant_, and _Lolita Lempicka_. On the contrary, the second ones are significantly different from the average product regarding the attribute _Citrus_. In this case, a distinction between the products that have been perceived with a high intensity of _Citrus_ (at least higher than the average product regarding that attribute) and the products that have been perceived with a low intensity of _Citrus_ (at least lower than the average product regarding that attribute) should be made. Such a distinction is made using the sign of the estimates: the products that have a positive estimate (first column) and a “small” _p-value_ (< 0.05, cf. last column) are significantly more intense in _Citrus_ than the average product. This is the case for _J’adore EP_, _J’adore ET_, and _Pleasures_. Inversely, the products associated with a negative estimate and a “small” _p-value_ (< 0.05, cf. last column) are significantly less intense in _Citrus_ than the average product. This is the case for _Angel_ and _Pure Poison_.
+
+In practice, looking at the results of the t-tests for all sensory attributes can quickly become tedious. As evoked previously, the decat function aims at running systematically all possible ANOVAs, using a given model, and summarizes the results in different matrices. This function is designed to point out the sensory attributes that are the most characteristic of a set of products
+as a whole, as well as product by product.
+
+The results of the t-tests are stored in `res.decat$resT`. This list is composed of as many objects as there are products (more precisely, as there are levels in the Product effect). For instance, for _Angel_ and _Pleasures_, the following results are obtained:
+
+<codeblock id="10_01">
+</codeblock>
+
+Each sensory profile is structured according to three components:
+
+- in the first column, the estimate of ![formula](https://render.githubusercontent.com/render/math?math=\alpha_{i}) (_i.e_ ![formula](https://render.githubusercontent.com/render/math?math=\hate(\alpha_{i})))
+
+
 </exercise>
 
 

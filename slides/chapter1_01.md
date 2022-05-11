@@ -14,10 +14,9 @@ The attributes that differentiate the products are identified through ANOVA (per
 
 Throughout this chapter, particular emphasis is made on the t-test in ANOVA, and on the not-so-well-known (but still very useful) geometrical point of view in PCA. More precisely, the notion of contrasts as well as the notion of supplementary information (also known as illustrative information) are presented. In practice, the *FactoMineR* package (a package dedicated to exploratory multivariate analysis in R) and some of its functions dedicated to the analysis of multivariate data sets are presented and used.
 
-
 ---
 
-## In practice
+# In practice
 
 
 
