@@ -1,5 +1,5 @@
 ---
-title: 'Lesson 2 : Getting used to R - Introduction to survey data'
+title: 'Leçon 2 : Getting used to R - Introduction to survey data'
 description:
   'This chapter will teach you even more stuff and help you learn some new
   concepts.'

@@ -1,0 +1,1 @@
+resdecat <- decat(sensochoc, formul="~Product+Panelist", firstvar = 5)
