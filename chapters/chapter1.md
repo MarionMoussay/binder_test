@@ -1,5 +1,5 @@
 ---
-title: 'Leçon 1 : Analyse en composantes principales'
+title: 'Lesson 1 : When products are rated according to a single list of attributes'
 description:
   'This chapter will teach you about many cool things and introduce you to the
   most important concepts of the course.'
@@ -9,9 +9,9 @@ type: chapter
 id: 1
 ---
 
-<exercise id="1" title="Introduction" type="slides">
+<exercise id="1" title="Data, sensory issues, and notations" type="slides">
 
-<slides source="chapter1_01_introduction">
+<slides source="chapter1_01">
 </slides>
 
 </exercise>
