@@ -14,7 +14,6 @@ id: 2
 </exercise>
 
 <exercise id="2" title="Why can’t I analyze such a table in a classical way?">
-TESTSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
 </exercise>
 
 <exercise id="3" title="How can I get a representation of the product space based on a consensus?" type="slides">
