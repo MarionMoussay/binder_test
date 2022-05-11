@@ -20,7 +20,7 @@ id: 1
 
 The data set used to illustrate the methodology consists of 12 panelists, testing and rating 12 luxurious women perfumes on 12 attributes. Each panelist rated each product twice.
 
-First, we import te dataset. A first overview of the data shows that the variables Session and Rank are considered as continuous variables. Since these columns correspond, respectively, to the session information and to the order of presentation, they should be considered as factors. To transform these columns from numerical to categorical, the as.factor function is applied on these two variables.
+First, we import te dataset. A first overview of the data shows that the variables _Session_ and _Rank_ are considered as continuous variables. Since these columns correspond, respectively, to the session information and to the order of presentation, they should be considered as factors. To transform these columns from numerical to categorical, the `as.factor` function is applied on these two variables.
 
 <codeblock id="01_01">
 </codeblock>
@@ -67,15 +67,29 @@ With a significance threshold at 5% (=0.05) and a _p-value_ of 6.52e-05, the ANO
 
 To get the list of attributes that structures the product space, the *decat* function of the *SensoMineR* package is used. This function systematically performs ANOVA on each sensory attribute using a given model. The main feature of the *decat* function is to produce result summaries that are specific to one particular effect (here the _Product_). For the function to know on which effect to focus on, it is of utmost importance to position that effect (here _Product_) in the first place when specifying the ANOVA model.
 
-To use the function, first load the *SensoMineR* package if it has not already been done. The main arguments of the *decat* function to specify are: the data set on which the analyses are performed, the ANOVA model, and the positions of the first and last sensory attributes (by default, the position of the last sensory attribute corresponds to the last column of the data set). The *decat* function produces a list of results that we store here in an object called res.decat.
+To use the function, first load the *SensoMineR* package if it has not already been done. The main arguments of the *decat* function to specify are: the data set on which the analyses are performed, the ANOVA model, and the positions of the first and last sensory attributes (by default, the position of the last sensory attribute corresponds to the last column of the data set). The *decat* function produces a list of results that we store here in an object called `res.decat`.
 
 <codeblock id="04_01">
 </codeblock>
 
+The names of the different components stored in res.decat are obtained using the *names* function.
+
+<codeblock id="05_01">
+</codeblock>
+
+Amongst the different results provided by the decat function, the one we are directly interested in here is `res.decat$resF` , as it stores the results associated with the _F-test_.
+
+<codeblock id="06_01">
+</codeblock>
+
+This output highlights the sensory attributes for which products are differentiated at a significance threshold of 0.05 (this threshold can be changed using the argument `proba` in the *decat* function). This list of attributes is sorted from the most significant (_Heady_ with a _p-value_ of 7.74e-57) to the less (but still) significant (_Citrus_ with a _p-value_ of 6.07e-03).
+
+As expressed by the p-values that are singularly small, products have been extremely differentiated by the panelists: it seems that some attributes, such as _Heady_ or _Greedy_, are really specific to some products
+
 </exercise>
 
-
-
+<exercise id="4" title="How can I get a sensory profile for each product?">
+</exercise>
 
 
 
