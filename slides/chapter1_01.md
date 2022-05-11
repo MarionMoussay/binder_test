@@ -2,8 +2,9 @@
 type: slides
 ---
 
----
+# Data, sensory issues, and notations
 
+---
 
 Once the quality of the data provided by the panelists has been checked, it makes sense to finally adopt a product perspective, as ultimately, data were collected for that purpose. 
 
