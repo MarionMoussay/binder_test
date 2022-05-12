@@ -131,7 +131,13 @@ The results of the t-tests are stored in `res.decat$resT`. This list is composed
 
 Each sensory profile is structured according to three components:
 
-- in the first column, the estimate of ![formula](https://render.githubusercontent.com/render/math?math=\alpha_{i}) (_i.e_ ![formula](https://render.githubusercontent.com/render/math?math=\hate(\alpha_{i})))
+- in the first column, the estimate of ![formula](https://render.githubusercontent.com/render/math?math=\alpha_{i}) ( _i.e_ ![formula](https://render.githubusercontent.com/render/math?math=\hat{\alpha_{i}}))
+- in the second column, the estimate of ![formula](https://render.githubusercontent.com/render/math?math=\mu + \alpha_{i}) ![formula](https://render.githubusercontent.com/render/math?math=\hat{\mu} + \hat{\alpha_{i}})
+- in the third column, the _p-value_ associated with the test ![formula](https://render.githubusercontent.com/render/math?math=H0 : \alpha_{i}=0) _versus_ ![formula](https://render.githubusercontent.com/render/math?math=H1:\alpha_{i} \ne 0)
+
+For each product, the attributes that are associated with p-values lower than the predefined threshold (the significance level can be changed using the proba option, set by default at α = 0.05) are shown. These attributes are then sorted according to two key parameters: the sign of the estimate of the coefficient αi and the value of the _p-value_.
+
+Based on these results, it can be concluded that _Angel_ has been perceived as _Greedy_, _Heady_, to a lesser degree as _Spicy_; on the contrary, it has not been perceived much as _Fruity_, nor as _Floral_. Similarly, _Pleasures_ has been perceived as _Green_, to a lesser extent as _Floral_; it has not been perceived much as _Wrapping_, nor as _Heady_. This constitutes the major information of the sensory profiles of these two products. Such information is extremely useful to understand the product space and the differences between products. Still there is a need for a more global understanding through graphical representations.
 
 
 </exercise>
