@@ -9,14 +9,9 @@ type: chapter
 id: 1
 ---
 
-<exercise id="1" title="Data, sensory issues, and notations" type="slides">
+<exercise id="1" title="How can I get a list of the sensory attributes that structure the product space?">
 
-<slides source="chapter1_01">
-</slides>
-
-</exercise>
-
-<exercise id="2" title="In practice">
+# Data set
 
 The data set used to illustrate the methodology consists of 12 panelists, testing and rating 12 luxurious women perfumes on 12 attributes. Each panelist rated each product twice.
 
@@ -25,7 +20,6 @@ First, we import te dataset. A first overview of the data shows that the variabl
 <codeblock id="01_01">
 </codeblock>
 
-
 Let us quickly recall the experts data set by using the summary function.
 
 <codeblock id="02_01">
@@ -33,15 +27,19 @@ Let us quickly recall the experts data set by using the summary function.
 
 As previously explained, the first four columns are categorical: these are the independent factors of our experiment. The other variables are continuous: these are the sensory attributes.
 
-</exercise>
-
-<exercise id="3" title="How can I get a list of the sensory attributes that structure the product space?">
+# ANOVA
 
 ANOVA is used to define the sensory attributes that structure the product space. However, here, the interpretation of the results is not panelist oriented, but product oriented.
 
 To explain the sensory attribute _Citrus_ (dependent variable) with respect to the main effects _Product_, _Panelist_, _Session_, and their first-order interactions (independent variables), the following ANOVA model is considered:
 
-![formula](https://render.githubusercontent.com/render/math?math=Citrus_{iks}\sim\mu\+\alpha_{i}+\beta_{k}+\gamma_{s}+\alpha\beta_{ik}+\alpha\gamma_{is}+\beta\gamma_{ks}+\epsilon_{iks})
+![formula](https://render.githubusercontent.com/render/math?math=Citrus_{iks}\sim\mu)+ ![formula](https://render.githubusercontent.com/render/math?math=\alpha_{i})
+![formula](https://render.githubusercontent.com/render/math?math=\beta_{k})+
+![formula](https://render.githubusercontent.com/render/math?math=\gamma_{s})+
+![formula](https://render.githubusercontent.com/render/math?math=\alpha\beta_{ik})+
+![formula](https://render.githubusercontent.com/render/math?math=\alpha\gamma_{is})+
+![formula](https://render.githubusercontent.com/render/math?math=\beta\gamma_{ks})+
+![formula](https://render.githubusercontent.com/render/math?math=\epsilon_{iks})
  
 where
 
@@ -88,7 +86,7 @@ As expressed by the p-values that are singularly small, products have been extre
 
 </exercise>
 
-<exercise id="4" title="How can I get a sensory profile for each product?">
+<exercise id="2" title="How can I get a sensory profile for each product?">
 
 Now that the list of sensory attributes differentiating the products has been defined, the natural continuity consists in defining which products are specific for those attributes. In other words, rather than focusing on the main effects, we are interested in the effects of the levels associated with the factors and their interactions. This new question to answer can be rephrased as: For the sensory attribute _Citrus_, which product can I consider as significantly different (“positively” or “negatively”, in a sense that will be specified latter) from some kind of an average product?
 
@@ -139,6 +137,76 @@ For each product, the attributes that are associated with p-values lower than th
 
 Based on these results, it can be concluded that _Angel_ has been perceived as _Greedy_, _Heady_, to a lesser degree as _Spicy_; on the contrary, it has not been perceived much as _Fruity_, nor as _Floral_. Similarly, _Pleasures_ has been perceived as _Green_, to a lesser extent as _Floral_; it has not been perceived much as _Wrapping_, nor as _Heady_. This constitutes the major information of the sensory profiles of these two products. Such information is extremely useful to understand the product space and the differences between products. Still there is a need for a more global understanding through graphical representations.
 
+</exercise>
+
+
+<exercise id="3" title="How can I represent the product space on map?">
+
+<exercise id="3_1" title="What's the concept of PCA ?" type = "slides">
+<slides source="chapter1_01">
+</slides>
+</exercise>
+
+<exercise id="3_2" title="Let's pratice">
+
+The main objective of PCA is to summarize the information contained in a multivariate data set into graphical representations of individuals and variables. The general idea is to represent the scatter plot of the individuals, ![formula](https://render.githubusercontent.com/render/math?math=N_{i}) , in a low-dimensional subspace (usually two dimensions), that respects as well as possible the distances between individuals. This subspace is the best lowdimensional representation possible of ![formula](https://render.githubusercontent.com/render/math?math=\mathbb{R}^{j}), the vector space formed of vectors of _J_ real numbers (the _J_ variables). Similarly, PCA aims at providing a representation of the scatter plot of the variables, ![formula](https://render.githubusercontent.com/render/math?math=N_{j}) , in a low-dimensional subspace (usually two dimensions), that respects as well as possible the distances between variables. This subspace is the best low-dimensional representation possible of ![formula](https://render.githubusercontent.com/render/math?math=\mathbb{R}^{i}), the vector space formed of vectors of _I_ real numbers (the _I_ statistical units).
+
+Geometrically, PCA simply consists in changing the frame of reference, by representing the cloud of points ![formula](https://render.githubusercontent.com/render/math?math=N_{i}) (resp. ![formula](https://render.githubusercontent.com/render/math?math=N_{j})), usually defined in ![formula](https://render.githubusercontent.com/render/math?math=\mathbb{R}^{j}) (resp. ![formula](https://render.githubusercontent.com/render/math?math=\mathbb{R}^{i})), into a lower-dimensional subspace. The objective is then to represent individuals in a vector sub-space ![formula](https://render.githubusercontent.com/render/math?math=F_{k}) of ![formula](https://render.githubusercontent.com/render/math?math=\mathbb{R}^{j}) of dimension _k_. 
+
+# Inertia and variance-covariance matrix
+
+First, we will work on the matrix using results in `res.decat$adjmean`.
+
+<codeblock id="11_01">
+</codeblock>
+
+Using the Euclidean matrix, calculate the matrix of distances of individuals and the center of gravity. 
+
+<codeblock id="12_01">
+</codeblock>
+
+The dispersion of the cloud of individuals is measured with inertia. For an individual ![formula](https://render.githubusercontent.com/render/math?math=x_{i}), inertia is noted : ![formula](https://render.githubusercontent.com/render/math?math=I=\frac{1}{n}\sum_{i=1}^{n} d^{2}(x_{i}, g))
+
+Regain the value of inertia with previous results.
+
+<codeblock id="13_01">
+</codeblock>
+
+Calculate the variance-covariance matrix and observe its diagonal. What can you say?
+
+<codeblock id="14_01">
+The sum of the diagonal corresponds to the value of the inertia. 
+</codeblock>
+
+Next, do the same job with the centered and reduced matrix using results in `res.decat$adjmean`. What can you conclude ?
+
+<codeblock id="15_01">
+Inertia is the sum of variances.
+</codeblock>
+
+*To conclude*, inertia is the generalization of the variance.
+
+![formula](https://render.githubusercontent.com/render/math?math=I=\sum_{i=1}^{n} \frac{1}{n} d^{2}(x_{i}, g) = \frac{1}{n}\sum_{i=1}^{n} d^{2}(x_{i}, g))
+![formula](https://render.githubusercontent.com/render/math?math=\Leftrightarrow \frac{1}{n}\sum_{i=1}^{n} \sum_{j=1}^{p}(x_{ij}-x_{.j})^{2}))
+![formula](https://render.githubusercontent.com/render/math?math=\Leftrightarrow \sum_{j=1}^{p} \frac{1}{n}\sum_{i=1}^{n}(x_{ij}-x_{.j})^{2}))
+![formula](https://render.githubusercontent.com/render/math?math=\Leftrightarrow \sum_{j=1}^{p} \frac{1}{n}Var(X_{j}))
+
+# Using *FactoMineR*
+
+The PCA function is then applied directly on the sensory profiles of the products, i.e., `res.decat$adjmean`. We store the results in an object called `res.pca`. As usual, the names of the different objects saved in res.pca are obtained using the names function.
+
+<codeblock id="16_01">
+</codeblock>
+
+The most important results provided by the PCA function are:
+
+- eig, which contains the eigenvalues and consequently the percentage of variability associated with each dimension;
+- var, which contains the results associated with the variables, i.e., their coordinates on the components, their correlations with the components, their contributions to the construction of the components, and their quality of representation on each component;
+- ind, which contains the results associated with the individuals, i.e., their coordinates on the components, their contributions to the construction of the components, their quality of representation on each component, and their distance to the center of gravity of the scatter plot ![formula](https://render.githubusercontent.com/render/math?math=N_{I}).
+
+
+
+</exercise>
 
 </exercise>
 

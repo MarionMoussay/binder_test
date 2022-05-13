@@ -1,0 +1,3 @@
+sum(distG)/n
+
+
