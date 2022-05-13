@@ -209,7 +209,7 @@ The most important results provided by the PCA function are:
 <codeblock id="17_01">
 </codeblock>
 
-The representation of the perfumes (cf. Figure 2.1) is based on the coordinates of the individuals stored in `res.pca$ind$coord`. This result is supported by the following output, which highlights the contribution of the products to the construction of the components (note that the sum of the contributions across products equals 100 for a given component).
+The representation of the perfumes is based on the coordinates of the individuals stored in `res.pca$ind$coord`. This result is supported by the following output, which highlights the contribution of the products to the construction of the components (note that the sum of the contributions across products equals 100 for a given component).
 
 <codeblock id="18_01">
 </codeblock>
