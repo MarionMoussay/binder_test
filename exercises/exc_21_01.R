@@ -1,0 +1,1 @@
+sum(res.pca$eig[,1])
