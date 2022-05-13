@@ -1,0 +1,5 @@
+library(FactoMineR)
+library(factoextra)
+data(wine)
+head(wine)
+colnames(wine)

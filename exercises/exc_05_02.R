@@ -1,0 +1,1 @@
+df <- decathlon[,1:4]
