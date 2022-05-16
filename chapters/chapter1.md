@@ -27,41 +27,9 @@ Let us quickly recall the experts data set by using the summary function.
 
 As previously explained, the first four columns are categorical: these are the independent factors of our experiment. The other variables are continuous: these are the sensory attributes.
 
-# ANOVA
+<exercise id="1_1" title="ANOVA, how to use the decat function?">
 
 ANOVA is used to define the sensory attributes that structure the product space. However, here, the interpretation of the results is not panelist oriented, but product oriented.
-
-To explain the sensory attribute _Citrus_ (dependent variable) with respect to the main effects _Product_, _Panelist_, _Session_, and their first-order interactions (independent variables), the following ANOVA model is considered:
-
-![formula](https://render.githubusercontent.com/render/math?math=Citrus_{iks}\sim\mu)+ ![formula](https://render.githubusercontent.com/render/math?math=\alpha_{i})
-![formula](https://render.githubusercontent.com/render/math?math=\beta_{k})+
-![formula](https://render.githubusercontent.com/render/math?math=\gamma_{s})+
-![formula](https://render.githubusercontent.com/render/math?math=\alpha\beta_{ik})+
-![formula](https://render.githubusercontent.com/render/math?math=\alpha\gamma_{is})+
-![formula](https://render.githubusercontent.com/render/math?math=\beta\gamma_{ks})+
-![formula](https://render.githubusercontent.com/render/math?math=\epsilon_{iks})
- 
-where
-
-- ![formula](https://render.githubusercontent.com/render/math?math=\alpha_{i}) is ![formula](https://render.githubusercontent.com/render/math?math=i^{th}) the coefficient associated with the _Product_ effect;
-- ![formula](https://render.githubusercontent.com/render/math?math=\beta_{k}) is ![formula](https://render.githubusercontent.com/render/math?math=k^{th}) the coefficient associated with the _Panelist_ effect;
-- ![formula](https://render.githubusercontent.com/render/math?math=\gamma_{s}) is ![formula](https://render.githubusercontent.com/render/math?math=s^{th}) the coefficient associated with the _Session_ effect; 
-- ![formula](https://render.githubusercontent.com/render/math?math=\alpha\beta_{ik}) is ![formula](https://render.githubusercontent.com/render/math?math=ik^{th}) the coefficient associated with the _Product-Panelist_ interaction;
-- ![formula](https://render.githubusercontent.com/render/math?math=\alpha\gamma_{is}) is ![formula](https://render.githubusercontent.com/render/math?math=is^{th}) the coefficient associated with the _Product-Session_ interaction;
-- ![formula](https://render.githubusercontent.com/render/math?math=\beta\gamma_{ks}) is ![formula](https://render.githubusercontent.com/render/math?math=ks^{th}) the coefficient associated with the _Panelist-Session_ interaction;
-- and ![formula](https://render.githubusercontent.com/render/math?math=\epsilon_{iks}) denotes the error term.
-
-The errors are assumed to be normally distributed, with mean zero, constant variance $$\sigma^2$$ and independent:
-
-- ![formula](https://render.githubusercontent.com/render/math?math=\epsilon_{iks}\sim N(0,\sigma^2));
-- ![formula](https://render.githubusercontent.com/render/math?math=\forall(i,k,s)\ne(i',k',s'),Cov(\epsilon_{iks}, \epsilon_{i'k's'})=0).
-
-By focusing on the _Product_ effect, the question we want to answer is: For the sensory attribute Citrus, is my _Product_ effect _statistically_ significant? This question can be rephrased the following way: Are my products significantly different regarding the sensory attribute Citrus? If it is the case, this sensory attribute _Citrus_ structures the product space, and should play an important role in the explanation of the sensory dimensions.
-
-<codeblock id="03_01">
-</codeblock>
-
-With a significance threshold at 5% (=0.05) and a _p-value_ of 6.52e-05, the ANOVA table shows a highly significant _Product_ effect: the products have been differentiated regarding the sensory attribute _Citrus_. Based on this result, we can expect _Citrus_ to play a role in the structure of the product space.
 
 To get the list of attributes that structures the product space, the *decat* function of the *SensoMineR* package is used. This function systematically performs ANOVA on each sensory attribute using a given model. The main feature of the *decat* function is to produce result summaries that are specific to one particular effect (here the _Product_). For the function to know on which effect to focus on, it is of utmost importance to position that effect (here _Product_) in the first place when specifying the ANOVA model.
 
@@ -86,9 +54,86 @@ As expressed by the p-values that are singularly small, products have been extre
 
 </exercise>
 
+<exercise id="1_2" title="What's the concept of decat?">
+
+When the function is used, it performs multiple ANOVA tests for each of the attributes. For example, to explain the sensory attribute _Citrus_ (dependent variable) with respect to the main effects _Product_, _Panelist_, _Session_, and their first-order interactions (independent variables), the following ANOVA model is considered:
+
+![formula](https://render.githubusercontent.com/render/math?math=Citrus_{iks}\sim\mu)+ ![formula](https://render.githubusercontent.com/render/math?math=\alpha_{i})
+![formula](https://render.githubusercontent.com/render/math?math=\beta_{k})+
+![formula](https://render.githubusercontent.com/render/math?math=\gamma_{s})+
+![formula](https://render.githubusercontent.com/render/math?math=\alpha\beta_{ik})+
+![formula](https://render.githubusercontent.com/render/math?math=\alpha\gamma_{is})+
+![formula](https://render.githubusercontent.com/render/math?math=\beta\gamma_{ks})+
+![formula](https://render.githubusercontent.com/render/math?math=\epsilon_{iks})
+ 
+where
+
+- ![formula](https://render.githubusercontent.com/render/math?math=\alpha_{i}) is ![formula](https://render.githubusercontent.com/render/math?math=i^{th}) the coefficient associated with the _Product_ effect;
+- ![formula](https://render.githubusercontent.com/render/math?math=\beta_{k}) is ![formula](https://render.githubusercontent.com/render/math?math=k^{th}) the coefficient associated with the _Panelist_ effect;
+- ![formula](https://render.githubusercontent.com/render/math?math=\gamma_{s}) is ![formula](https://render.githubusercontent.com/render/math?math=s^{th}) the coefficient associated with the _Session_ effect; 
+- ![formula](https://render.githubusercontent.com/render/math?math=\alpha\beta_{ik}) is ![formula](https://render.githubusercontent.com/render/math?math=ik^{th}) the coefficient associated with the _Product-Panelist_ interaction;
+- ![formula](https://render.githubusercontent.com/render/math?math=\alpha\gamma_{is}) is ![formula](https://render.githubusercontent.com/render/math?math=is^{th}) the coefficient associated with the _Product-Session_ interaction;
+- ![formula](https://render.githubusercontent.com/render/math?math=\beta\gamma_{ks}) is ![formula](https://render.githubusercontent.com/render/math?math=ks^{th}) the coefficient associated with the _Panelist-Session_ interaction;
+- and ![formula](https://render.githubusercontent.com/render/math?math=\epsilon_{iks}) denotes the error term.
+
+The errors are assumed to be normally distributed, with mean zero, constant variance ![formula](https://render.githubusercontent.com/render/math?math=\sigma^2) and independent:
+
+- ![formula](https://render.githubusercontent.com/render/math?math=\epsilon_{iks}\sim N(0,\sigma^2));
+- ![formula](https://render.githubusercontent.com/render/math?math=\forall(i,k,s)\ne(i',k',s'),Cov(\epsilon_{iks}, \epsilon_{i'k's'})=0).
+
+By focusing on the _Product_ effect, the question we want to answer is: For the sensory attribute Citrus, is my _Product_ effect _statistically_ significant? This question can be rephrased the following way: Are my products significantly different regarding the sensory attribute Citrus? If it is the case, this sensory attribute _Citrus_ structures the product space, and should play an important role in the explanation of the sensory dimensions.
+
+<codeblock id="03_01">
+</codeblock>
+
+With a significance threshold at 5% (=0.05) and a _p-value_ of 6.52e-05, the ANOVA table shows a highly significant _Product_ effect: the products have been differentiated regarding the sensory attribute _Citrus_. Based on this result, we can expect _Citrus_ to play a role in the structure of the product space.
+
+</exercise>
+
+<exercise id="1_2" title="Contrasts in Analysis of Variance">
+
+Analyses of Variance are used to evaluate the significance of one or more factors on a continuous variable. The global significance of each factor is evaluated through the F-test. Additionally, the significance of the different levels within each factor is evaluated through the t-test. Usually, this additional step tests whether the coefficients ![formula](https://render.githubusercontent.com/render/math?math=\alpha_{i}), associated with the ith level of the categorical variable of interest, are significantly different from 0. Without loss of generality, let us consider the simplest ANOVA model in which one continuous variable is explained by one categorical variable:
+
+![formula](https://render.githubusercontent.com/render/math?math=Y_{ij} \sim \mu) + ![formula](https://render.githubusercontent.com/render/math?math=\alpha_{i}) + 
+![formula](https://render.githubusercontent.com/render/math?math=\epsilon_{ij})
+
+The estimate of µ and the different levels αi depends on so-called contrasts.
+Mainly, three types of contrasts are used:
+
+- ![formula](https://render.githubusercontent.com/render/math?math=\alpha_{1}= 0), the intercept µ corresponds to the average score for the level 1
+of that factor, and the coefficient αi corresponds to the deviation between level i and level I, (i = 2, . . . , I);
+- ![formula](https://render.githubusercontent.com/render/math?math=\alpha_{I}= 0), the intercept µ corresponds to the average score for the level I
+of that factor, and the coefficient αi corresponds to the deviation between level i and level I, (i = 1, . . . , I − 1);
+- ![formula](https://render.githubusercontent.com/render/math?math=\sum_{i=1}^{I}( \alpha_{i}=0)), the intercept µ corresponds to the average score of that
+factor, and the coefficient αi corresponds to the deviation of level i from
+the average.
+
+When there is no a priori on the levels, or in other words when there is no specified level of reference, the third contrast is used. However, R uses by default the second one, i.e., ![formula](https://render.githubusercontent.com/render/math?math=\alpha_{i}). To change the contrast to ![formula](https://render.githubusercontent.com/render/math?math=\sum_{i=1}^{I}( \alpha_{i}=0)), the following code should be used in R. This code should be run before actually performing the ANOVA.
+
+<codeblock id="22_01">
+</codeblock>
+
+Note that, by changing the contrast, the estimate of the coefficients change (by definition), but the global analysis does not. However, since the default contrast in R uses the last level as reference (![formula](https://render.githubusercontent.com/render/math?math=\alpha_{I}= 0)), it only displays the results for the (I − 1) first coefficients. When the contrast ![formula](https://render.githubusercontent.com/render/math?math=\sum_{i=1}^{I}( \alpha_{i}=0)) is used, the last coefficient should then be calculated. This could be done in two different ways:
+
+- calculate manually the last coefficient by summing the I − 1 first coefficients, and by multiplying this sum by -1;
+- change the order of the levels of the factor (so that αI is not the last one anymore) using the relevel function, and re-run the analysis.
+
+Note that in the first case, only the estimate of ![formula](https://render.githubusercontent.com/render/math?math=\alpha_{I}= 0) is provided, whereas in the second case, the p-value is also available, as the test associated with that coefficient is performed.
+
+This second case is automated with the _AovSum_ function of the FactoMineR package. This function is similar to the aov function except that
+it considers the ![formula](https://render.githubusercontent.com/render/math?math=\alpha_{I}= 0) contrast and provides directly the results of the _t-test_ for all the modalities of each effect added in the model. These results are stored in the object `$Ttest`.
+
+### AJOUTER EXO AVEC TABLEAU DECOMP VARIANCE
+
+</exercise>
+
+</exercise>
+
 <exercise id="2" title="How can I get a sensory profile for each product?">
 
 Now that the list of sensory attributes differentiating the products has been defined, the natural continuity consists in defining which products are specific for those attributes. In other words, rather than focusing on the main effects, we are interested in the effects of the levels associated with the factors and their interactions. This new question to answer can be rephrased as: For the sensory attribute _Citrus_, which product can I consider as significantly different (“positively” or “negatively”, in a sense that will be specified latter) from some kind of an average product?
+
+<exercise id="2_1" title="Using decat results">
 
 The answer to that question lies in the analysis of the coefficients ![formula](https://render.githubusercontent.com/render/math?math=\alpha_{i},(i = 1, . . . , I)) associated with the _Product_ effect. Such an analysis of the coefficients is done through the Student’s _t-test_, in which the following hypotheses are tested for each product, i.e., for each level of the _Product_ effect:
 
@@ -98,12 +143,17 @@ To get a unique estimate for each ![formula](https://render.githubusercontent.co
 
 ![formula](https://render.githubusercontent.com/render/math?math=\sum_{i=1}^{I}( \alpha_{i}=0))
 
-This contrast consists in testing each product with respect to some kind of an average product, and not with respect to a specific product. Incidentally, the point of view adopted on the contrast also fits with the point of view adopted by PCA, as we will see further on.
+The decat function aims at running systematically all possible ANOVAs, using a given model, and summarizes the results in different matrices. This function is designed to point out the sensory attributes that are the most characteristic of a set of products
+as a whole, as well as product by product.
 
-To set contrasts, the *options* function is used. This function allows setting up general options, which affect the way R computes and displays its results.
+The results of the t-tests are stored in `res.decat$resT`. This list is composed of as many objects as there are products (more precisely, as there are levels in the Product effect). For instance, for _Angel_ and _Pleasures_, the following results are obtained:
 
-<codeblock id="07_01">
+<codeblock id="10_01">
 </codeblock>
+
+</exercise>
+
+<exercise id="2_1" title="What's the test?">
 
 To get the results of the t-test, the *summary.lm* function (or more generically, the summary function) is applied to the results of the lm function. In ourcase, this corresponds to applying the *summary.lm* function to `citrus.lm`:
 
@@ -119,13 +169,7 @@ Now we know that `Product1` corresponds to _Angel_, `Product2` to _Aromatics Eli
 
 For the first ones (_p-value_ > 0.05), the products are not significantly different from the average product regarding the sensory attribute _Citrus_. This is the case for _Aromatics Elixir_, _Chanel N5_, _Cinéma_, _Coco Mademoiselle_, _L’instant_, and _Lolita Lempicka_. On the contrary, the second ones are significantly different from the average product regarding the attribute _Citrus_. In this case, a distinction between the products that have been perceived with a high intensity of _Citrus_ (at least higher than the average product regarding that attribute) and the products that have been perceived with a low intensity of _Citrus_ (at least lower than the average product regarding that attribute) should be made. Such a distinction is made using the sign of the estimates: the products that have a positive estimate (first column) and a “small” _p-value_ (< 0.05, cf. last column) are significantly more intense in _Citrus_ than the average product. This is the case for _J’adore EP_, _J’adore ET_, and _Pleasures_. Inversely, the products associated with a negative estimate and a “small” _p-value_ (< 0.05, cf. last column) are significantly less intense in _Citrus_ than the average product. This is the case for _Angel_ and _Pure Poison_.
 
-In practice, looking at the results of the t-tests for all sensory attributes can quickly become tedious. As evoked previously, the decat function aims at running systematically all possible ANOVAs, using a given model, and summarizes the results in different matrices. This function is designed to point out the sensory attributes that are the most characteristic of a set of products
-as a whole, as well as product by product.
-
-The results of the t-tests are stored in `res.decat$resT`. This list is composed of as many objects as there are products (more precisely, as there are levels in the Product effect). For instance, for _Angel_ and _Pleasures_, the following results are obtained:
-
-<codeblock id="10_01">
-</codeblock>
+In practice, looking at the results of the t-tests for all sensory attributes can quickly become tedious that's why we use the _decat_ function.
 
 Each sensory profile is structured according to three components:
 
@@ -137,6 +181,7 @@ For each product, the attributes that are associated with p-values lower than th
 
 Based on these results, it can be concluded that _Angel_ has been perceived as _Greedy_, _Heady_, to a lesser degree as _Spicy_; on the contrary, it has not been perceived much as _Fruity_, nor as _Floral_. Similarly, _Pleasures_ has been perceived as _Green_, to a lesser extent as _Floral_; it has not been perceived much as _Wrapping_, nor as _Heady_. This constitutes the major information of the sensory profiles of these two products. Such information is extremely useful to understand the product space and the differences between products. Still there is a need for a more global understanding through graphical representations.
 
+</exercise>
 </exercise>
 
 
@@ -227,7 +272,6 @@ The sum of these coefficients weighted by the number of individuals represents t
 
 <codeblock id="20_01">
 </codeblock>
-
 
 Link to the previous part and write inertia according to eigenvalues. 
 
