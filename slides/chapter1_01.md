@@ -21,19 +21,14 @@ Let's take this dataset represents 6 perfumes with 5 sensory attributs:
 
  PRODUCT | INTENSITY | FRESHNESS | JASMIN | ROSE | CAMOMILLE 
  :--: |:--: |:--: |:--: |:--: |:--:
- 	
-Angel | 77 | 36.1 | 30 | 13.3 | 15.2 
- 2
-Aromatics Elixir | 69.7 | 26.7 | 75.2 | 17.9 | 15.5 
- Chanel N5
- | 52.7 | 50.6 | 41.5 | 45.8 | 18.8
+ Angel | 77 | 36.1 | 30 | 13.3 | 15.2 
+ Aromatics Elixir | 69.7 | 26.7 | 75.2 | 17.9 | 15.5 
+ Chanel N5 | 52.7 | 50.6 | 41.5 | 45.8 | 18.8
  Cinéma | 70 | 60.9 | 26.4 | 21.8 | 18.8 
- Coco Mademoiselle
- | 73 | 66.1 | 40.6 | 18.2 | 15.2
- J'adore EP
- | 48.8 | 50.9 | 30 | 14.2 | 16.7 
+ Coco Mademoiselle | 73 | 66.1 | 40.6 | 18.2 | 15.2
+ J'adore EP | 48.8 | 50.9 | 30 | 14.2 | 16.7 
  
-The objective here is to identify groups among the 6 individuals represented by the wines. 
+The objective here is to identify groups among the 6 individuals represented by the perfumes. 
 
 ---
 
@@ -45,18 +40,12 @@ The following table is then obtained:
 
  PRODUCT | INTENSITY | FRESHNESS | JASMIN | ROSE | CAMOMILLE 
  :--: |:--: |:--: |:--: |:--: |:--:
- 	
-Angel | 1.10 | -0.89 | -0.59 | -0.71
- | -0.87 
- 2
-Aromatics Elixir | 0.27 | -1.50 | 1.92 | -0.33 | -0.70 
- Chanel N5
- | -1.68 | 0.05 | 0.05 | 1.98 | 1.22
+ Angel | 1.10 | -0.89 | -0.59 | -0.71| -0.87 
+ Aromatics Elixir | 0.27 | -1.50 | 1.92 | -0.33 | -0.70 
+ Chanel N5 | -1.68 | 0.05 | 0.05 | 1.98 | 1.22
  Cinéma | 0.30 | 0.72 | -0.79 | -0.01 | 1.22
- Coco Mademoiselle
- | 0.64 | 1.06 | 0.00 | -0.30 | -0.87
- J'adore EP
- | -0.64 | 0.56 | -0.59 | -0.63 | 0.00 
+ Coco Mademoiselle | 0.64 | 1.06 | 0.00 | -0.30 | -0.87
+ J'adore EP | -0.64 | 0.56 | -0.59 | -0.63 | 0.00 
  
 Why is this step necessary? What does it allow and why?
 
@@ -66,15 +55,15 @@ Notes: This very important step makes it possible to compare individuals with ea
 
 From this first centered-reduced table, it is already possible to draw hypotheses on the groups of individuals.
 
-<center><img src="/analyse_tab_cr.JPG" alt="analyse tableau cr" width="110%" /></center>
+<center><img src="/analyse_tab_cr.JPG" alt="analyse tableau cr" width="75%" /></center>
 
 With this information we can already imagine the plan of individuals.
 
 <center><img src="/ACP_main.png" alt="ACP à la main" width="45%" /></center>
 
-Notes: We see here that the AOC sparkling wine (MOS1), another sparkling wine (MOS2) and the Alsace wine (ALSA) have very similar values for the export countries Belgium, the Netherlands and Canada. We can already assume that they belong to the same group. 
-By opting for a single group for the MOS1, MOS2 and ALSA wines and by placing them in any reference we can deduce the position of the other 3 individuals. The three importing countries used to define the previous group are taken as vertical benchmarks: Canada, Belgium and the Netherlands. 
-All their observations are negative so we position them at the bottom left. Champagne (CHMP) has negative values for the same export countries as the previous defined group so it is put in the top left. Beaujolais wine (BOJO) has all its positive values so we position it on the top right. The last wine, the Italian Giro (GIRO) has positive values for the three countries of import mentioned but some negative values for the other countries so we put it at the bottom right. 
+Notes: We see here that _Angel_ and _Coco Mademoiselle_ have same values for the sensory attribut _Camomille_. We can already assume that they belong to the same group. Next, _Cinéma_ and _J'adore EP_ have similar values for _Freshness_ and _Jasmin_ so we can create a second group.
+By opting for this groups and by placing them in any reference we can deduce the position of the other individuals.
+The example of this representation is based on taking the variable _Camomille_ as the horizontal axis and _Jasmin_ as the vertical axis. 
 ---
 
 # You have just completed a first PCA !
