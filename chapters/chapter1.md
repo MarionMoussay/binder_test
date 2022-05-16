@@ -130,7 +130,7 @@ The results of the t-tests are stored in `res.decat$resT`. This list is composed
 Each sensory profile is structured according to three components:
 
 - in the first column, the estimate of ![formula](https://render.githubusercontent.com/render/math?math=\alpha_{i}) ( _i.e_ ![formula](https://render.githubusercontent.com/render/math?math=\hat{\alpha_{i}}))
-- in the second column, the estimate of ![formula](https://render.githubusercontent.com/render/math?math=\mu + \alpha_{i}) ![formula](https://render.githubusercontent.com/render/math?math=\hat{\mu} + \hat{\alpha_{i}})
+- in the second column, the estimate of ![formula](https://render.githubusercontent.com/render/math?math=\mu) + ![formula](https://render.githubusercontent.com/render/math?math=\alpha_{i})(i.e. ![formula](https://render.githubusercontent.com/render/math?math=\hat{\mu}) + ![formula](https://render.githubusercontent.com/render/math?math=\hat{\alpha_{i}}))
 - in the third column, the _p-value_ associated with the test ![formula](https://render.githubusercontent.com/render/math?math=H0 : \alpha_{i}=0) _versus_ ![formula](https://render.githubusercontent.com/render/math?math=H1:\alpha_{i} \ne 0)
 
 For each product, the attributes that are associated with p-values lower than the predefined threshold (the significance level can be changed using the proba option, set by default at α = 0.05) are shown. These attributes are then sorted according to two key parameters: the sign of the estimate of the coefficient αi and the value of the _p-value_.
