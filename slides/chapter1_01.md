@@ -17,16 +17,21 @@ The interpretations that may be derived from a CPA are based on the origin of th
 
 ## Presentation of the data set 
 
-The Directorate-General for Taxes publishes a Monthly Wine Statistics in the Official Journal on 4 November 1987. This is the table that crosses wine categories with exporting countries. The common unit is the hectolitre. Here are the results for 5 different wines:
+Let's take this dataset represents 6 perfumes with 5 sensory attributs:
 
- ID | BELGIQUE | NEDERLAND | RFA | ITALIE | UK | SWITZERLAND | USA | CANADA
- :--: |:--: |:--: |:--: |:--: |:--:|:--: |:--: |:--: 
- CHMP | 7069 | 3786 | 12578 | 8037 | 13556 | 9664 | 10386 | 206
- MOS1 | 2436 | 586 | 2006 | 30 | 1217 | 471 | 997 | 51
- MOS2 | 3066 | 290 | 10439 | 1413 | 7214 | 112 | 3788 | 330
- ALSA | 2422 | 1999 | 17183 | 57 | 1127 | 600 | 408 | 241
- GIRO | 22986 | 22183 | 21023 | 56 | 30025 | 6544 | 13114 | 3447
- BOJO | 17465 | 19840 | 72977 | 2364 | 39919 | 17327 | 17487 | 2346
+ PRODUCT | INTENSITY | FRESHNESS | JASMIN | ROSE | CAMOMILLE 
+ :--: |:--: |:--: |:--: |:--: |:--:
+ 	
+Angel | 77 | 36.1 | 30 | 13.3 | 15.2 
+ 2
+Aromatics Elixir | 69.7 | 26.7 | 75.2 | 17.9 | 15.5 
+ Chanel N5
+ | 52.7 | 50.6 | 41.5 | 45.8 | 18.8
+ Cinéma | 70 | 60.9 | 26.4 | 21.8 | 18.8 
+ Coco Mademoiselle
+ | 73 | 66.1 | 40.6 | 18.2 | 15.2
+ J'adore EP
+ | 48.8 | 50.9 | 30 | 14.2 | 16.7 
  
 The objective here is to identify groups among the 6 individuals represented by the wines. 
 
@@ -38,14 +43,20 @@ The first step is to center and reduce the data. This means that for each value 
 
 The following table is then obtained: 
 
- ID | BELGIQUE | NEDERLAND | RFA | ITALIE | UK | SUISSE | USA | CANADA
- :--: |:--: |:--: |:--: |:--: |:--:|:--: |:--: |:--: 
- CHMP | -0.245 | -0.429 | -0.398 | 1.944 | -0.122 | 0.564 | 0.384 | -0.626
- MOS1 | -0.768 | -0.746 | -0.813 | -0.631 | -0.890 | -0.773 | -0.956 | -0.734
- MOS2 | -0.697 | -0.775 | -0.482 | -0.186 | -0.516 | -0.826 | -0.558 | -0.539
- ALSA | -0.770 | -0.606 | -0.217 | -0.622 | -0.895 | -0.755 | -1.040 | -0.601
- GIRO | 1.552 | 1.394 | -0.066 | -0.623  | 0.904 | 0.110 | 0.773 | 1.633
- BOJO | 0.929 | 1.162 | 1.974 | 0.119 | 1.519 | 1.679 | 1.397 | 0.866
+ PRODUCT | INTENSITY | FRESHNESS | JASMIN | ROSE | CAMOMILLE 
+ :--: |:--: |:--: |:--: |:--: |:--:
+ 	
+Angel | 1.10 | -0.89 | -0.59 | -0.71
+ | -0.87 
+ 2
+Aromatics Elixir | 0.27 | -1.50 | 1.92 | -0.33 | -0.70 
+ Chanel N5
+ | -1.68 | 0.05 | 0.05 | 1.98 | 1.22
+ Cinéma | 0.30 | 0.72 | -0.79 | -0.01 | 1.22
+ Coco Mademoiselle
+ | 0.64 | 1.06 | 0.00 | -0.30 | -0.87
+ J'adore EP
+ | -0.64 | 0.56 | -0.59 | -0.63 | 0.00 
  
 Why is this step necessary? What does it allow and why?
 
