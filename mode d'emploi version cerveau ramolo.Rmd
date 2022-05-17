@@ -1,0 +1,69 @@
+---
+title: "Mode d'emploi Binder & Netlify (version cerveau ramolo)"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 1. Installations nécessaires
+
+- git
+- node.js (la version 11.14.0 par exemple). Si problème de version > installer version plus ancienne (lien tuto : https://github.com/nvm-sh/nvm) ;
+- Gatsby CLI : ouvrir cmd en version admin et exécuter _npm install -g gatsby-cli_ 
+
+## 2. Création du projet 
+
+- Cloner le dépôt git d'Inès (https ://github.com/ines/course-starter-r.git) dans un nouveau répertoire sur votre compte github ;
+- Ouvrir l'invite de commandes en mode administrateur et placez-vous dans le répertoire du dépôt (commande : _cd :/NomDuChemin/_). 
+- exécutez :
+```{r eval=FALSE}
+npm install                
+npm run dev
+```
+- visualiser le site : `localhost:8000` (à ouvrir dans un navigateur)
+
+
+## 3. Initialisation du projet 
+
+Le répertoire git est composé de deux branches  :
+
+- *master*, utilisée par Netlify pour lire le contenu du site ;
+- *binder*, utilisée par Binder pour lire les packages et data utilisés. 
+
+Ces deux branches sont cependant identiques mais permettent un management de la création du site plus efficace. La branche *binder* fait office de moteur et la branche *master* de carcasse. 
+
+### 4. Configuration de la branche Binder
+
+- renseigner les packages utilisés : binder > install.R, inscrire le package souhaité avec `install.packages("nom")`;
+- inscrire la date de la version des packages souhaitée : runtime.txt (on peut juste renseigner la date du jour pour être certain.e qu'il s'agit des versions les plus récentes);
+- renseigner le répertoire git : meta.json, inscrire le répertoire dans juniper > repo ; 
+- inclure les datas : créer un dossier data ; 
+- push la branche *binder*.
+
+Création du moteur _Binder_ (étape à refaire uniquement si ajout d'un package ou d'un data) :
+
+Se rendre sur le site https://mybinder.org/ et renseigner : 
+
+- URL : url du répertoire github
+- branch : binder
+
+
+### 5. Configuration de la branche Master
+
+- créer un compte sur https://www.netlify.com/ ;
+- Site > add new site > Import an existing project from a Git repository
+- deploy settings > Build&deploy > Environment, renseigner version de node.js dans *Environment variables* en ajoutant la variable _NODE_VERSION_ (exemple : 11.14.0) ;
+
+#### Désactiver déploiement automatique 
+Netlify c'est gratuit mais limité : 300 minutes de déploiement par mois. Pour y remédier, déployer uniquement quand travail terminé = supprimer déploiement automatique sur la page du site en question : Deploys > Stop auto publishing. Ou Settings > Build & Deploy > Build settings > Edit settings > Builds > Stop builds.
+
+#### Déploiement manuel
+Activer manuellement le déploiement : cliquer sur le dernier processus de déploiement en date (disponible sur la page d'accueil du site) > options > retry deploy
+
+## 6. Modification du projet
+
+Modification du contenu (de la carcasse) du site en local sur `localhost:8000` (accessibilité expliqué en _2._) ; toutes les modifications apportées dans les fichiers ".md", juste en sauvegardant sans même push sur git, se mettent à jour sur cette fenêtre (actualisez la page si ce n'est pas le cas automatiquement). Il faut maintenir la cmd ouverte durant tout ce temps. Parfois la connection s'interrompt et il est nécessaire de répéter les commandes en _2._.
+
+

@@ -1,0 +1,70 @@
+---
+title: "Mode d'emploi Binder & Netlify"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Pré-requis 
+
+Dans un premier temps, il faudra installer :
+
+- git
+- node.js (il faut une version plus ancienne que celles à jour, la version 11.14.0 fonctionne par exemple). Si une version plus récente est déjà installée, il est possible de changer la version avec nvm (lien d'un tutoriel : https://github.com/nvm-sh/nvm). Vous pouvez vérifier votre version en lançant _node -v_ dans l'invite de commandes.
+- Gatsby CLI. Pour cela, exécuter la commande _npm install -g gatsby-cli_ dans l'invite de
+commandes en mode administrateur. Vous pouvez vérifier en exécutant _gatsby version_ que c'est bien installé.
+
+## Création du projet 
+
+Afin de vérifier que les installations sont en place, nous allons essayer de lancer en local la version github d'Ines. Pour cela :
+
+- Cloner le dépôt git suivant : https ://github.com/ines/course-starter-r.git
+- Ouvrez l'invite de commandes en mode administrateur et placez-vous dans le répertoire du dépôt. (commande _cd :/NomDuChemin/_)
+- exécutez :
+```{r eval=FALSE}
+npm install                
+npm run dev
+```
+
+L'application est normalement opérationnelle à l'adresse `localhost:8000`. Vous pouvez utiliser cette structure vierge proposée par Inès pour débuter votre projet. Pour cela, la structure du répertoire doit être dans un nouveau répertoire sur votre compte github.
+
+## Initialisation du projet 
+
+Le répertoire git est composé de deux branches  :
+
+- *master*, utilisée par Netlify pour lire le contenu du site ;
+- *binder*, utilisée par Binder pour lire les packages et data utilisés. 
+
+Ces deux branches sont cependant identiques mais permettent un management de la création du site plus efficace. La branche *binder* fait office de moteur et la branche *master* de carcasse. 
+
+### Branche Binder
+
+  Dans un premier temps on peut configurer uniquement la branche *binder* en :
+  
+- renseignant les packages utilisés dans le fichier _install.R_ disponible dans le dossier _binder_. Renseignez le package souhaité avec `install.packages("nom")`;
+- inscrivant la date de la version des packages souhaitée dans le fichier runtime.txt (on peut juste renseigner la date du jour pour être certain.e qu'il s'agit des versions les plus récentes);
+- renseignant le répertoire git dans la section _juniper_ du fichier _meta.json_. On indique le chemin git du répertoire dans la clé "repo". 
+- incluant les data souhaitées dans un fichier data que vous pouvez créer. 
+
+Maintenant que la branche est prête, on peut configurer une première et unique fois un _Binder_. Rendez vous sur la page https://mybinder.org/ et renseignez l'URL du répertoire github, la branche *binder* et cliquez sur "launch". L'éxécution peut être lente, elle est terminée lorsqu'une page jupyter notebook s'ouvre. 
+
+Sauf lors de l'ajout d'un package ou d'un data, cette branche n'a plus à être modifiée et cette étape n'est plus à être refaîte. 
+
+### Branche Master
+
+  Dans un second temps, on initialise l'hébergeur du site : _Netlify_. Créez un compte sur le site. Ensuite dans l'onget _site_ cliquez sur _add new site_. Cliquez sur _Import an existing project from a Git repository_ et sélectionnez le dépôt github associé à votre brache *master*. Allez ensuite dans _deploy settings_ puis _Build&deploy_ et _Environment_. Dans la section _Environment variables_ ajoutez la variable _NODE_VERSION = 11.14.0_ (ou une autre version de Node.js qui est installée sur votre machine).
+
+Netlify possède un système de limitation de temps de déploiement (300 minutes pour un mois). Pour éviter de consommer ces précieuses minutes gratuites, on conseille de désactiver l'auto-publishing. En effet, Netlify réactualise la page automatiquement à partir du moment où la branche master est modifiée. Pour désactiver la mise à jour automatique il faut cliquer sur "Deploys" disponible sur la page d'accueil du site et cliquer sur "Stop auto publishing". Une autre alternative est Site Settings \> Build & Deploy \> Build settings, cliquer sur "edit settings" et sélectionner "Stop builds" dans la rubrique "Builds".
+
+Pour manuellement mettre à jour le site déployé, cliquez sur le dernier processus de déploiement disponible dans la rubrique "Deploys" de la page d'accueil du site, cliquez sur "options" et sélectionnez "retry deploy".
+
+
+## Modification du projet
+
+Maintenant que le binder et l'hébergement netlify sont initialisés, il est possible de modifier son site. Pour des raisons de coût en temps et en minutes de déploiement, les modifications peuvent être suivit localement sur la page `localhost:8000`. 
+
+Toutes les modifications apportées dans les fichiers ".md", juste en sauvegardant sans même push sur git, se mettent à jour sur cette fenêtre (actualisez la page si ce n'est pas le cas automatiquement). Il faut maintenir la cmd ouverte durant tout ce temps. Parfois la connection s'interrompt et il est nécessaire de répéter les commandes dans la cmd.
+
+
