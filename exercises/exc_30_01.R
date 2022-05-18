@@ -1,0 +1,1 @@
+plot.PCA(wine.pca,choix="var",col.var="gray",col.quanti="black")
