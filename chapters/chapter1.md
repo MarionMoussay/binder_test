@@ -225,10 +225,13 @@ Bad choice.
 Good job!
 </choice>
 
+<exercise id="2_3" title="Exercices">
+Exercice 2.4 and 2.5
+</exercise>
 
 </exercise>
 
-<exercise id="2_3" title="Contrasts in Analysis of Variance">
+<exercise id="2_4" title="Contrasts in Analysis of Variance">
 
 Analyses of Variance are used to evaluate the significance of one or more factors on a continuous variable. The global significance of each factor is evaluated through the F-test. Additionally, the significance of the different levels within each factor is evaluated through the t-test. Usually, this additional step tests whether the coefficients ![formula](https://render.githubusercontent.com/render/math?math=\alpha_{i}), associated with the ith level of the categorical variable of interest, are significantly different from 0. Without loss of generality, let us consider the simplest ANOVA model in which one continuous variable is explained by one categorical variable:
 
@@ -272,7 +275,7 @@ it considers the ![formula](https://render.githubusercontent.com/render/math?mat
 </slides>
 </exercise>
 
-<exercise id="3_2" title="Let's pratice">
+<exercise id="3_2" title="Let's understand the method">
 
 The main objective of PCA is to summarize the information contained in a multivariate data set into graphical representations of individuals and variables. The general idea is to represent the scatter plot of the individuals, ![formula](https://render.githubusercontent.com/render/math?math=N_{i}) , in a low-dimensional subspace (usually two dimensions), that respects as well as possible the distances between individuals. This subspace is the best lowdimensional representation possible of ![formula](https://render.githubusercontent.com/render/math?math=\mathbb{R}^{j}), the vector space formed of vectors of _J_ real numbers (the _J_ variables). Similarly, PCA aims at providing a representation of the scatter plot of the variables, ![formula](https://render.githubusercontent.com/render/math?math=N_{j}) , in a low-dimensional subspace (usually two dimensions), that respects as well as possible the distances between variables. This subspace is the best low-dimensional representation possible of ![formula](https://render.githubusercontent.com/render/math?math=\mathbb{R}^{i}), the vector space formed of vectors of _I_ real numbers (the _I_ statistical units).
 
@@ -370,11 +373,46 @@ By default, the PCA function generates two graphics: the representation of the i
 
 The main dimension of variability (i.e., the first component) opposes products such as _Pleasures_ to products such as _Angel_.
 
+<exercise id="3_2" title="Let's practice">
+Exercice 2.6 and 2.7
+</exercise>
+
 </exercise>
 
 </exercise>
 
 <exercise id="4" title="How can I get homogeneous clusters of products?">
+
+Principal component methods (such as PCA) and clustering methods (such as Hierarchical Ascendant Classification [HAC]) are often complementary. Indeed, clustering methods aim at studying the distance between individuals, whereas PCA aims at visualizing these distances. As PCA represents the scatter plot of individuals NI on two components only, two individuals that represented as relatively close on a factorial plane may be actually very distant, hence leading to unfortunate misinterpretations. By combining PCA and HAC, such misinterpretation can be avoided. For example, the cluster information can be added on the factorial plane by using a color code. In this case, our two former individuals, who are represented as relatively close on the two dimensions used, would be associated with different colors. This difference in colors suggests that they are distant on other dimensions, as they belong to two distinct clusters. Similarly, results from **HAC** can be complemented by **PCA**, as the notion of distance between clusters can de facto be visualized in a factorial plane.
+
+Such a combination between multivariate analysis and clustering is the core of the **HCPC** function (Hierarchical Clustering on Principle Components; *FactoMineR* package), as it takes as input the results issued from any multivariate methods implemented in *FactoMineR*, and run HAC on the individual space. As by default, the number of components stored by these multivariate analyses equals 5, the distance used by **HCPC** is usually based on the five first components only. This can be easily modified by changing the number of components to store, using the ncp argument in the different multivariate methods (_e.g._, `PCA(experts,ncp=3)` for three components only; `PCA(experts,ncp=Inf)` for all the components).
+
+By using the previous example, both the **PCA** (more precisely, the object `res.pca`) and the **HCPC** functions can be combined as such:
+
+<codeblock id="32_01">
+</codeblock>
+
+The **HCPC** function requires the analyst to set a number of clusters by clicking on the hierarchical tree (also called dendrogram). **HCPC** suggests a natural cut of the hierarchical tree, based on a criterion that depends on both the ratio of the variance within clusters and the total variance of the scatter plot. The criterion used aims at balancing the definition of clusters that are as homogenous as possible (with similar individuals), and as different as possible to each other (for which centers of gravity are different). In our example, we accept the natural cut in four groups suggested by **HCPC**. It is worth mentioning that **HCPC** will never suggest the 2-cluster solution.
+
+Once the number of clusters is determined by the analyst, **HCPC** stores that information and plots the individuals on the factorial plane with a colorcode depending on the cluster they belong to. Such representation is obtained by adding, or representing, supplementary information (also referred to illustrative information) on a factorial plane. This feature is of utmost importance for interpreting exploratory multivariate results, and will be further developed in the next paragraph.
+
+The results provided by **HCPC** are composed of five items :
+
+<codeblock id="33_01">
+</codeblock>
+
+The information related to the cluster each individual belongs to is stored in the object called `res.hcpc$data.clust`. Another important output is stored in the object `res.hcpc$desc.var`. This object presents the description of the clusters by the variables of the data set, by providing for each cluster the list of significant attributes. The attributes are sorted according to two keys: the sign of the difference between the average score for that cluster and the overall mean for each attribute (cf. second and third columns), and the significance of the p-value of the test that compares the mean over the individuals of the cluster to the overall mean (cf. last column).
+
+<codeblock id="34_01">
+</codeblock>
+
+Cluster 1 is not particularly characterized by any sensory attributes. The perfumes in cluster 1 have been perceived as some kind of average perfumes. De facto, these products are represented close to the center of gravity of the factorial plane. Such result can be directly linked to the notion of contrast defined previously in the t-test: the perfumes in cluster 1 are associated with ![formula](https://render.githubusercontent.com/render/math?math=I(F)=\alpha_{i}) coefficients that are not significantly different from 0.
+
+Cluster 2 is composed of products that have been perceived with a high intensity of _Citrus_, _Green_ (at least higher than the average perfume), and to a lesser extent _Floral_ and _Fruity_: the p-values associated with _Citrus_ and _Green_ are particularly small compared to the ones associated with _Floral_ and _Fruity_. Similarly, products of cluster 2 have been perceived with a low intensity of _Wrapping_, _Oriental_, and to a lesser extent _Vanilla_.
+
+Cluster 3 is composed of products that have been perceived with a high intensity of _Greedy_, _Vanilla_, and with a low intensity of _Floral_.
+
+Cluster 4 is composed of products that have been perceived with a high intensity of _Oriental_, _Spicy_, _Heady_, _Woody_, to a lesser extent _Wrapping_, and with a low intensity of _Fruity_.
 
 </exercise>
 
