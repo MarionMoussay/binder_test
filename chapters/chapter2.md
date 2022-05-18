@@ -24,6 +24,10 @@ You will differenciate the groups as the following :
 * group 2, 3, 4 and 5 in active group
 * name of each group : origin, odor, visual, odor.after.shaking, taste, overall
 
+The group composition is set in `data and objectives`.
+
+You have MFA Reminders in `Reminders on PCA and MFA with FactoMineR`
+
 <codeblock id="02_02">
 Here expected results : 
 
@@ -105,7 +109,19 @@ By balancing each group by it first eigen value, the variance of the principal d
 You can have reminders of PCA utilisation with factoMineR in `Reminders on PCA and MFA with FactoMineR`. 
 
 Using weighted PCA, try to find MFA results :
-<codeblock id="03_02"></codeblock>
+<codeblock id="03_02">
+
+Here expected results : 
+
+|         |Dim.1 |Dim.2|Dim.3|Dim.4|Dim.5|
+|------------|:-------------:|:-------------:|:-----------|:-----------:|
+| 2EL  | 0.23887352 |-0.7966775|  0.93573660  | 0.5244065920 | -0.35149196|
+|1CHA |-2.04479321 |-1.3833145 | 1.51353029  |0.7295890931 | 0.07128969|
+|1FON |-1.22014093| -0.4590203 | 0.06233338 |-1.0363561617 | 0.71797564|
+|...|...|...|...|...|...|
+|T2  |  0.16996447 | 3.3623417 | 1.05443115| -0.0472654272 | 0.42592614|
+
+</codeblock>
 
 </exercise>
 
@@ -138,7 +154,17 @@ Here expected results :
 
 <exercise id="5" title="How can I find PCA results with an MFA? ">
 Now using MFA, try to find the same results as previously.
-<codeblock id="07_02"> You can consider one variable as one group!</codeblock>
+<codeblock id="07_02"> You can consider one variable as one group!
+
+Here expected results : 
+
+|         |Dim.1 |Dim.2|Dim.3|Dim.4|
+|------------|:-------------:|:-------------:|:-----------:|
+|SEBRLE      | 1.13921677 |0.29485966|  0.85002742 | 0.52879719|
+|CLAY       | -0.03337845 |-1.43874614| -0.89886543 | 0.02153567|
+|KARPOV    |   0.53057016 | 0.52508373 | 0.33343766 | 0.03854637|
+|...|...|...|...|...|
+|Casarsa   |  -1.63391395 | 1.64437723| -0.68175577 | 0.13598627|</codeblock>
 </exercise>
 
 <exercise id="6" title="Summary: What did you learn?">
@@ -190,22 +216,13 @@ We are going to represent the square of Lg measure between the first table <img 
 First, we need to discuss about the relative position of each point:
 <choice>
 <opt text="Superposed" correct="true">
-
-Correct!
-As we run a PCA on the same tables, the principal component of the MFA is the same 
+Correct! As we run a PCA on the same tables, the principal component of the MFA is the same 
 </opt>
-
 <opt text="On the same x-axis but y-axis different">
-
 </opt>
-
 <opt text="On the same y-axis but x-axis different" >
-
-
 </opt>
-
 <opt text="Independant position">
-
 </opt>
 </choice>
 
