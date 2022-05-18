@@ -40,7 +40,7 @@ Here expected results :
 
 <exercise id="3" title="How can I find MFA results with a PCA? ">
 
-Let's try to find the last results, but in using PCA. To guide you, we decide to work on the weighting aspect of the afm and how important it is. 
+Let's try to find the last results, but in using PCA. To guide you, we decide to work on the weighting aspect of the MFA and how important it is. 
 
 ## Why and how weight MFA?
 The two main objectives of the MFA are 
@@ -77,8 +77,8 @@ label {
 
 <HTML>
 <center>
-<input type="checkbox" id="my_checkbox1" style="display:none; border:">
-<div id="hidden">You chose to weight the different groups of the MFA by it number of variables. Sorry, but it is not the good answer!
+<input type="checkbox" id="my_checkbox1" style="display:none;">
+<div id="hidden"  style="border: solid red;">You chose to weight the different groups of the MFA by it number of variables. Sorry, but it is not the good answer!
 Let's imagine this case : <br>
   - The dataset is composed by two groups. <br>
   - The first group contains 8 variables non-collinear.<br>
@@ -87,21 +87,25 @@ Here, the second group will be uni-dimensionnal, while the first one can be mult
 </div>
 <label for="my_checkbox1">Number of variables</label>
 <input type="checkbox" id="my_checkbox2" style="display:none;">
-<div id="hidden">Idées d'implémentation</div>
+<div id="hidden" style="border: solid red;">
+You chose to weight the different groups of the MFA by the total inertia of the group. Sorry, but it is not the good answer!<br>
+Here, we will have what we want considering only the first dimension construction: All groups will contribute with the same weight. But in the case where two groups are multi-dimensionnal, they will be as important as an uni-dimensionnal group in the contruction of multi-dimensionnal groups. Which is not what we want. </div>
 <label for="my_checkbox2">Total inertia</label>
 <input type="checkbox" id="my_checkbox3" style="display:none;">
-<div id="hidden">Idées d'implémentation</div>
+<div id="hidden" style="border: solid green;">
+Correct! <br>
+By balancing each group by it first eigen value, the variance of the principal dimension of each group is equal to 1, which means that no group can construct the first dimension alone. In scaling by the first eigen value, we also allow a multi-dimensional group to contribute to more dimensions than an uni-dimensional group
+</div>
 <label for="my_checkbox3">First eigen value</label>
 </center>
 </br>
 </HTML>
 
 ## Links between PCA weighted and MFA
-You can have reminders of PCA utilisation with factoMineR in `Reminders on MFA and PCA with FactoMineR`. 
+You can have reminders of PCA utilisation with factoMineR in `Reminders on PCA and MFA with FactoMineR`. 
 
 Using weighted PCA, try to find MFA results :
 <codeblock id="03_02"></codeblock>
-
 
 </exercise>
 
@@ -133,72 +137,81 @@ Here expected results :
 </exercise>
 
 <exercise id="5" title="How can I find PCA results with an MFA? ">
-<style>
-/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
-.flip-card {
-  background-color: transparent;
-  width: 300px;
-  height: 200px;
-  border: 1px solid #f1f1f1;
-  perspective: 1000px; /* Remove this if you don't want the 3D effect */
-}
-</style>
-<style>
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-}
-</style>
-<style>
-/* Do an horizontal flip when you move the mouse over the flip box container */
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-}
-</style>
-<style>
-/* Position the front and back side */
-.flip-card-front, .flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden; /* Safari */
-  backface-visibility: hidden;
-}
-</style>
-<style>
-/* Style the front side (fallback if image is missing) */
-.flip-card-front {
-  background-color: #bbb;
-  color: black;
-}
-</style>
-<style>
-/* Style the back side */
-.flip-card-back {
-  background-color: dodgerblue;
-  color: white;
-  transform: rotateY(180deg);
-}
-</style>
-
-<HTML><div class="flip-card">
-  <div class="flip-card-inner">
-    <div class="flip-card-front">
-      <h1>Test FLIPCARD</h1>
-    </div>
-    <div class="flip-card-back">
-      <h1>Idées d'implémentations</h1>
-      <p>Test</p>
-    </div>
-  </div>
-</div>
-</HTML>
+Now using MFA, try to find the same results as previously.
+<codeblock id="07_02"> You can consider one variable as one group!</codeblock>
 </exercise>
 
-<exercise id="0" title="Reminders on MFA and PCA with FactoMineR">
+<exercise id="6" title="Summary: What did you learn?">
+Through this courses we learn many important things about MFA and PCA. <br>
+Weighting is very important. In case of MFA, it allows you to balance each group importance in the dimension construction. In QDA, MFA is similar to a PCA, where each group is weighting with it first eigen value. Reciprocally, we can also see a PCA as a MFA, where each group is composed by one variable. 
 
+</exercise>
+
+<exercise id="7" title="To go further: An other approach with MFA and Lg measure ">
+Another way of looking MFA is to see it as a canonical analysis using the Lg Measure. 
+
+### Canonical Analysis (CA) and Generalized Canonical Analysis (GCA)
+
+Without loss of generality, when two groups of attributes only are considered, the idea of Canonical Analysis is to find two linear combinations of variables, one for each group, that are most highly correlated together. These two linear combinations (one for each group) are the so-called canonical variables. In practice, they are qualified as “canonical” as they are representative of something, in our case a group of sensory attributes.
+
+In the case of Generalized Canonical Analysis (GCA), canonical variables are not defined directly by comparing sets of variables two by two, but indirectly by first defining a variable that would be representative of all the groups of variables. In other words, the idea is to find a sequence of 
+<img src="https://render.githubusercontent.com/render/math?math=\large z_{s}"> such that the following criterion is maximized:<br><center>
+<img src="https://render.githubusercontent.com/render/math?math=\Large \sum_{j} R^{2}(z_{s}, X_{j})"></center>
+
+The <img src="https://render.githubusercontent.com/render/math?math=\large z_{s}"> are the common factors to the group of variables. To obtain the
+canonical variables, <img src="https://render.githubusercontent.com/render/math?math=\large z"> is simply regressed on the variables of <img style="margin-bottom: -0.7rem" src="https://render.githubusercontent.com/render/math?math=\large X_{j}"> . A drawback of
+GCA is related to the use of the coefficient of determination, and de facto the
+use of multiple linear regression. Unfortunately, this method is very sensitive
+to multi-collinearity, a phenomenon that is very often observed with sensory
+data.
+
+### Lg measure
+By definition, the <img style="margin-bottom: -0.7rem" src="https://render.githubusercontent.com/render/math?math=\large L_{g}(z,X_{j})"> coefficient, measured between a variable z and <img style="margin-bottom: -0.7rem" src="https://render.githubusercontent.com/render/math?math=\large X_{j}"> , equals the inertia of all the variables of <img style="margin-bottom: -0.7rem" src="https://render.githubusercontent.com/render/math?math=\large X_{j}"> orthogonally projected onto z. When the variables<img style="margin-bottom: -0.7rem" src="https://render.githubusercontent.com/render/math?math=\large \nu_{k}"> of <img style="margin-bottom: -0.7rem" src="https://render.githubusercontent.com/render/math?math=\large X_{j}"> are continuous (which is our case), with weights equal to mk, the coefficient  <img style="margin-bottom: -0.7rem" src="https://render.githubusercontent.com/render/math?math=\large L_{g}(z,X_{j})"> is defined by: <br><center>
+<img src="https://render.githubusercontent.com/render/math?math=\Large L_{g}(z, X_{j})=\sum_{k} m_{k}r^{2}(z,\nu_{k})"></center>
+By analogy, this measure is precisely the one used in PCA when extracting its main dimensions of variability
+
+### MFA and GCA
+The way MFA extracts its dimensions of variability from the groups of variables can be seen as a variant of GCA. In MFA, the coefficient of determination is replaced by the Lg measure, a measure of relationship between a variable and a group of variables.
+As mentioned previously, in
+MFA, the variables of a group j are all weighed by <img style="margin-bottom: -0.7rem" src="https://render.githubusercontent.com/render/math?math=\large X_{j}">. In that particular case, the <img style="margin-bottom: -2.25rem" src="https://render.githubusercontent.com/render/math?math=\large \dfrac{1}{\lambda_{1}^{j}}"> coefficient measured between a variable z and <img style="margin-bottom: -0.7rem" src="https://render.githubusercontent.com/render/math?math=\large X_{j}"> can be
+written as follows:<br>
+<center><img src="https://render.githubusercontent.com/render/math?math=\Large L_{g}(z, X_{j})=\dfrac{1}{\lambda_{1}^{j}} \sum_{k} r^{2}(z,\nu_{k})"></center>
+This measure equals 1 if and only if z corresponds to the first dimension
+of the PCA performed on the variables of <img style="margin-bottom: -0.7rem" src="https://render.githubusercontent.com/render/math?math=\large X_{j}">
+<br>
+<br>
+
+### Let's practice !
+
+We run a MFA on two identical groups<img style="margin-bottom: -0.5rem" src="https://render.githubusercontent.com/render/math?math=\large X_{1}"> and <img style="margin-bottom: -0.5rem" src="https://render.githubusercontent.com/render/math?math=\large X_{2}">, which give us two factors <img style="margin-bottom: -0.5rem" src="https://render.githubusercontent.com/render/math?math=\large F_{1}"> and <img style="margin-bottom: -0.5rem" src="https://render.githubusercontent.com/render/math?math=\large F_{2}">. 
+
+We are going to represent the square of Lg measure between the first table <img style="margin-bottom: -0.5rem" src="https://render.githubusercontent.com/render/math?math=\large X_{1}"> and <img style="margin-bottom: -0.5rem" src="https://render.githubusercontent.com/render/math?math=\large X_{2}"> according to <img style="margin-bottom: -0.5rem" src="https://render.githubusercontent.com/render/math?math=\large F_{1}"> and <img style="margin-bottom: -0.5rem" src="https://render.githubusercontent.com/render/math?math=\large F_{2}">.
+
+First, we need to discuss about the relative position of each point:
+<choice>
+<opt text="Superposed" correct="true">
+
+Correct!
+As we run a PCA on the same tables, the principal component of the MFA is the same 
+</opt>
+
+<opt text="On the same x-axis but y-axis different">
+
+</opt>
+
+<opt text="On the same y-axis but x-axis different" >
+
+
+</opt>
+
+<opt text="Independant position">
+
+</opt>
+</choice>
+
+</exercise>
+
+<exercise id="0" title="Reminders on PCA and MFA with FactoMineR" type="slides">
+<slides source="chapter2_02">
+</slides>
 </exercise>
