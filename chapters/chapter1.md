@@ -133,7 +133,7 @@ it considers the ![formula](https://render.githubusercontent.com/render/math?mat
 
 Now that the list of sensory attributes differentiating the products has been defined, the natural continuity consists in defining which products are specific for those attributes. In other words, rather than focusing on the main effects, we are interested in the effects of the levels associated with the factors and their interactions. This new question to answer can be rephrased as: For the sensory attribute _Citrus_, which product can I consider as significantly different (“positively” or “negatively”, in a sense that will be specified latter) from some kind of an average product?
 
-<exercise id="2_1" title="Using decat results">
+<exercise id="2_1" title="Using decat's result">
 
 The answer to that question lies in the analysis of the coefficients ![formula](https://render.githubusercontent.com/render/math?math=\alpha_{i},(i = 1, . . . , I)) associated with the _Product_ effect. Such an analysis of the coefficients is done through the Student’s _t-test_, in which the following hypotheses are tested for each product, i.e., for each level of the _Product_ effect:
 
@@ -155,7 +155,7 @@ The results of the t-tests are stored in `res.decat$resT`. This list is composed
 
 <exercise id="2_1" title="What's the test?">
 
-To get the results of the t-test, the *summary.lm* function (or more generically, the summary function) is applied to the results of the lm function. In ourcase, this corresponds to applying the *summary.lm* function to `citrus.lm`:
+To get the results of the t-test, the *summary.lm* function (or more generically, the summary function) is applied to the results of the *lm* function. In ourcase, this corresponds to applying the *summary.lm* function to `citrus.lm`:
 
 <codeblock id="08_01">
 </codeblock>
@@ -266,7 +266,7 @@ The constructed axes are the orthonormed eigenvectors of the _pxp_ matrix of the
 <codeblock id="19_01">
 </codeblock>
 
-We call these axes ![formula](https://render.githubusercontent.com/render/math?math=C_{i}). The main components that make up the created axes are of the form ![formula](https://render.githubusercontent.com/render/math?math=C {i} = a_{i} {1}X {1} + a_{i} {2}X {2} + ... + a_{i} {p}X {p}) such as ![formula](https://render.githubusercontent.com/render/math?math=C_{i}), a formed _i_ axis, must contain as much information as possible, that is, it must disperse the observations as much as possible. To make this axis is telque when the coordinates of the individuals are projected on it, the coordinates are as scattered as possible and therefore the variance of these projected coordinates is maximum. The axes are non-correled because they must one by one bring new information that another axis does not have. 
+We call these axes ![formula](https://render.githubusercontent.com/render/math?math=C_{i}). The main components that make up the created axes are of the form ![formula](https://render.githubusercontent.com/render/math?math=C {i} = a_{i}^{1}X_{1}) + ![formula](https://render.githubusercontent.com/render/math?math=a_{i}^{2}X_{2}) + ... + ![formula](https://render.githubusercontent.com/render/math?math=a_{i}^{p}X_{p}) such as ![formula](https://render.githubusercontent.com/render/math?math=C_{i}), a formed _i_ axis, must contain as much information as possible, that is, it must disperse the observations as much as possible. To make this axis is telque when the coordinates of the individuals are projected on it, the coordinates are as scattered as possible and therefore the variance of these projected coordinates is maximum. The axes are non-correled because they must one by one bring new information that another axis does not have. 
 
 The sum of these coefficients weighted by the number of individuals represents the variance of a constructed axis. It also corresponds to the eigenvalue associated with the first axis : [formula](https://render.githubusercontent.com/render/math?math=Var(F_{j})=  frac{1}{n} sum_{i=1} {p} c_{i} {j} =  lambda_{j}) with ![formula](https://render.githubusercontent.com/render/math?math=c_{i} {j}) the projected coordinates on the axis _i_ of ![formula](https://render.githubusercontent.com/render/math?math=F_{j}). Can you try to code it to be sur ?
 
@@ -281,9 +281,24 @@ Link to the previous part and write inertia according to eigenvalues.
 
 **To conclude** : ![formula](https://render.githubusercontent.com/render/math?math=I(F)=\lambda_{1}) + ... + ![formula](https://render.githubusercontent.com/render/math?math=\lambda_{q})
 
-</exercise>
+# plot.PCA
+
+By default, the PCA function generates two graphics: the representation of the individuals, and the representation of the variables. We can visualize representations like it : 
+
+<codeblock id="23_01">
+</codeblock>
+
+The main dimension of variability (i.e., the first component) opposes products such as _Pleasures_ to products such as _Angel_.
 
 </exercise>
 
+</exercise>
+
+<exercise id="4" title="Supplementary information">
+
+</exercise>
+
+<exercise id="5" title="Let's Practice">
 
 
+</exercise>

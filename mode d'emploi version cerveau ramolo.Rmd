@@ -18,6 +18,7 @@ knitr::opts_chunk$set(echo = TRUE)
 - Cloner le dépôt git d'Inès (https ://github.com/ines/course-starter-r.git) dans un nouveau répertoire sur votre compte github ;
 - Ouvrir l'invite de commandes en mode administrateur et placez-vous dans le répertoire du dépôt (commande : _cd :/NomDuChemin/_). 
 - exécutez :
+
 ```{r eval=FALSE}
 npm install                
 npm run dev

@@ -1,4 +1,4 @@
-mat.cr <- scale(res.decat$adjmean)
+mat.cr <- scale(mat)
 
 n <- nrow(mat.cr)
 p <- ncol(mat.cr)

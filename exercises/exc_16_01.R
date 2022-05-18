@@ -1,3 +1,4 @@
 library(FactoMineR)
-res.pca <- PCA(res.decat$adjmean)
+res.pca <- PCA(mat)
 names(res.pca)
+
