@@ -13,7 +13,7 @@ id: 2
 </slides>
 </exercise>
 
-<exercise id="3" title="Let's apply MFA">
+<exercise id="2" title="Let's apply MFA">
 Let's consider the first dataset: wine, from FactoMineR: 
 <codeblock id="01_02">
 </codeblock>
@@ -38,16 +38,63 @@ Here expected results :
 </codeblock>
 </exercise>
 
-<exercise id="4" title="How can I find MFA results with a PCA? ">
+<exercise id="3" title="How can I find MFA results with a PCA? ">
 
-Let's try to find the last results, but in using PCA. 
+Let's try to find the last results, but in using PCA. To guide you, we decide to work on the weighting aspect of the afm and how important it is. 
 
-## Why and how weighting MFA?
- /> to be completed
- subjects : 
- * discuss which weight to give to variables. total inertia? Number of variables? Why first eigen values? etc
- * discuss about uni/multi-dimensionnal data
-Maybe in a in a separate course
+## Why and how weight MFA?
+The two main objectives of the MFA are 
+* Search automatically for the common structure within the different individual configurations
+* summarizes the results by providing a consensual space (_i.e : the common structure shared by a majority of groups._)
+
+It is important to give to each group the same importance. All group should contribute equally in the construction of the first dimension of the consensual space. Such procedure is not so straightforward as different groups are not providing the same number of attributes, and these attributes can be structured differently. To summarize, the variables spaces of each group are not equally multi-dimensional.
+
+To keep the group structure, we need the same weights for all variables from the same group. We don't want a single group generating the first axis on its own and we want a multi-dimensional group contributing to more axes than a uni-dimensional group.
+
+Now, we need to know how weight the MFA to keep this idea of having the same importance for each group in the construction of the consensual space. 
+
+We propose you three different ways of weighting. Can you guess the good one? 
+
+<style>
+/* Style the button that is used to open and close the collapsible content */
+#hidden {
+  display: none;
+  height: auto;
+  border: solid #00A9FF;
+  text-align:left;
+  padding:1em;
+}
+:checked + #hidden {
+  display: block;
+}
+label { 
+      background : #00A9FF;
+      padding : 5px 10px 5px 10px;
+      color:white;
+}
+
+</style>
+
+<HTML>
+<center>
+<input type="checkbox" id="my_checkbox1" style="display:none; border:">
+<div id="hidden">You chose to weight the different groups of the MFA by it number of variables. Sorry, but it is not the good answer!
+Let's imagine this case : <br>
+  - The dataset is composed by two groups. <br>
+  - The first group contains 8 variables non-collinear.<br>
+  - The second group contains 4 variables, but last 7 variables are proportionnal to the fisrt one.<br>
+Here, the second group will be uni-dimensionnal, while the first one can be multi-dimensionnal. The number of variables is not taking into acocunt in the variables space construction of each group. Hence, it can't balance the importance of the first dimension construction.
+</div>
+<label for="my_checkbox1">Number of variables</label>
+<input type="checkbox" id="my_checkbox2" style="display:none;">
+<div id="hidden">Idées d'implémentation</div>
+<label for="my_checkbox2">Total inertia</label>
+<input type="checkbox" id="my_checkbox3" style="display:none;">
+<div id="hidden">Idées d'implémentation</div>
+<label for="my_checkbox3">First eigen value</label>
+</center>
+</br>
+</HTML>
 
 ## Links between PCA weighted and MFA
 You can have reminders of PCA utilisation with factoMineR in `Reminders on MFA and PCA with FactoMineR`. 
@@ -55,32 +102,10 @@ You can have reminders of PCA utilisation with factoMineR in `Reminders on MFA a
 Using weighted PCA, try to find MFA results :
 <codeblock id="03_02"></codeblock>
 
-<style>
-/* Style the button that is used to open and close the collapsible content */
-#hidden {
-  display: none;
-  height: 100px;
-  border: thick double #32a1ce;;
-}
-:checked + #hidden {
-  display: block;
-}
-label { 
-      border: 1px solid red; 
-      background : #ffcccb;
-      padding : 5px 10px 5px 10px;
-}
-</style>
-
-<HTML>
-<input type="checkbox" id="my_checkbox1" style="display:none;">
-<div id="hidden">Idées d'implémentation</div>
-<label for="my_checkbox1">Click on me</label>
-</HTML>
 
 </exercise>
 
-<exercise id="5" title="Let’s apply PCA">
+<exercise id="4" title="Let’s apply PCA">
 
 We work on the dataset decathlon :
 
@@ -107,11 +132,7 @@ Here expected results :
 </codeblock>
 </exercise>
 
-<exercise id="6" title="How can I find PCA results with an MFA? ">
-
-</exercise>
-
-<exercise id="2" title="Reminders on MFA and PCA with FactoMineR">
+<exercise id="5" title="How can I find PCA results with an MFA? ">
 <style>
 /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
 .flip-card {
@@ -176,4 +197,8 @@ Here expected results :
   </div>
 </div>
 </HTML>
+</exercise>
+
+<exercise id="0" title="Reminders on MFA and PCA with FactoMineR">
+
 </exercise>
