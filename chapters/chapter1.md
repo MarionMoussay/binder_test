@@ -106,8 +106,7 @@ With it, complete this table :
 
 **Exercise 2**
 
-The purpose of a variance analysis (ANOVA) has a factor is to test if the variances of the subpopulations corresponding to the expression levels of the factor
-are equal.
+The purpose of a variance analysis (ANOVA) is to test if the variances of the subpopulations corresponding to the expression levels of the factor are equal.
 
 <choice id=3>
 <opt text="True">
@@ -373,10 +372,10 @@ By default, the PCA function generates two graphics: the representation of the i
 
 The main dimension of variability (i.e., the first component) opposes products such as _Pleasures_ to products such as _Angel_.
 
-<exercise id="3_2" title="Let's practice">
-Exercice 2.6 and 2.7
 </exercise>
 
+<exercise id="3_2" title="Let's practice">
+Exercice 2.6 and 2.7
 </exercise>
 
 </exercise>
