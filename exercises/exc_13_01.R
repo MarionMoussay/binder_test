@@ -1,3 +1,3 @@
-sum(distG)/n
+sum(distG)/(n-1)
 
 

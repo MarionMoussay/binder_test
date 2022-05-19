@@ -1,5 +1,5 @@
 ---
-title: 'Lesson 1 : ANOVA or how to define the product space'
+title: 'Lesson 1 : ANOVA or how to define the product space ?'
 prev: null
 next: /chapter2
 type: chapter
@@ -8,15 +8,11 @@ id: 1
 
 
 <exercise id="1" title="How to use the decat funtion from SensoMineR?" type="slides">
-
+<slides source="chapter1_01">
+</slides>
 </exercise>
 
 <exercise id="2" title="What's the method behind the decat function?">
-Plan : objectif > data set > decat = plusieurs ANOVA > qu'est ce qu'anova > exercices (idée : entonnoir)
-
-# What's the question here ?
-
-Lister les attributs qui structure l'espace des produits
 
 # Data set
 The data set used to illustrate the methodology consists of 12 panelists, testing and rating 12 luxurious women perfumes on 12 attributes. Each panelist rated each product twice.
@@ -31,9 +27,32 @@ Let us quickly recall the experts data set by using the summary function.
 <codeblock id="02_01">
 </codeblock>
 
-As previously explained, the first four columns are categorical: these are the independent factors of our experiment. The other variables are continuous: these are the sensory attributes.
+The first four columns are categorical: these are the independent factors of our experiment. The other variables are continuous: these are the sensory attributes.
 
-# What do the decat function ?
+# What does the decat function ?
+
+To get the list of attributes that structures the product space, the *decat* function of the *SensoMineR* package is used. This function systematically performs ANOVA on each sensory attribute using a given model. The main feature of the *decat* function is to produce result summaries that are specific to one particular effect (here the _Product_). For the function to know on which effect to focus on, it is of utmost importance to position that effect (here _Product_) in the first place when specifying the ANOVA model.
+
+To use the function, first load the *SensoMineR* package if it has not already been done. The main arguments of the *decat* function to specify are: the data set on which the analyses are performed, the ANOVA model, and the positions of the first and last sensory attributes (by default, the position of the last sensory attribute corresponds to the last column of the data set). The *decat* function produces a list of results that we store here in an object called `res.decat`.
+
+<codeblock id="04_01">
+</codeblock>
+
+The names of the different components stored in res.decat are obtained using the *names* function.
+
+<codeblock id="05_01">
+</codeblock>
+
+Amongst the different results provided by the decat function, the one we are directly interested in here is `res.decat$resF` , as it stores the results associated with the _F-test_.
+
+<codeblock id="06_01">
+</codeblock>
+
+This output highlights the sensory attributes for which products are differentiated at a significance threshold of 0.05 (this threshold can be changed using the argument `proba` in the *decat* function). This list of attributes is sorted from the most significant (_Heady_ with a _p-value_ of 7.74e-57) to the less (but still) significant (_Citrus_ with a _p-value_ of 6.07e-03).
+
+As expressed by the p-values that are singularly small, products have been extremely differentiated by the panelists: it seems that some attributes, such as _Heady_ or _Greedy_, are really specific to some products
+
+# What's ANOVA ?
 
 When the function is used, it performs multiple ANOVA tests for each of the attributes. For example, to explain the sensory attribute _Citrus_ (dependent variable) with respect to the main effects _Product_, _Panelist_, _Session_, and their first-order interactions (independent variables), the following ANOVA model is considered:
 
@@ -44,6 +63,7 @@ When the function is used, it performs multiple ANOVA tests for each of the attr
 ![formula](https://render.githubusercontent.com/render/math?math=\alpha\gamma_{is})+
 ![formula](https://render.githubusercontent.com/render/math?math=\beta\gamma_{ks})+
 ![formula](https://render.githubusercontent.com/render/math?math=\epsilon_{iks})
+
  
 where
 
@@ -68,34 +88,7 @@ By focusing on the _Product_ effect, the question we want to answer is: For the 
 
 With a significance threshold at 5% (=0.05) and a _p-value_ of 6.52e-05, the ANOVA table shows a highly significant _Product_ effect: the products have been differentiated regarding the sensory attribute _Citrus_. Based on this result, we can expect _Citrus_ to play a role in the structure of the product space.
 
-# What's ANOVA ?
-
-ANOVA is used to define the sensory attributes that structure the product space. However, here, the interpretation of the results is not panelist oriented, but product oriented.
-
-To get the list of attributes that structures the product space, the *decat* function of the *SensoMineR* package is used. This function systematically performs ANOVA on each sensory attribute using a given model. The main feature of the *decat* function is to produce result summaries that are specific to one particular effect (here the _Product_). For the function to know on which effect to focus on, it is of utmost importance to position that effect (here _Product_) in the first place when specifying the ANOVA model.
-
-To use the function, first load the *SensoMineR* package if it has not already been done. The main arguments of the *decat* function to specify are: the data set on which the analyses are performed, the ANOVA model, and the positions of the first and last sensory attributes (by default, the position of the last sensory attribute corresponds to the last column of the data set). The *decat* function produces a list of results that we store here in an object called `res.decat`.
-
-<codeblock id="04_01">
-</codeblock>
-
-The names of the different components stored in res.decat are obtained using the *names* function.
-
-<codeblock id="05_01">
-</codeblock>
-
-Amongst the different results provided by the decat function, the one we are directly interested in here is `res.decat$resF` , as it stores the results associated with the _F-test_.
-
-<codeblock id="06_01">
-</codeblock>
-
-This output highlights the sensory attributes for which products are differentiated at a significance threshold of 0.05 (this threshold can be changed using the argument `proba` in the *decat* function). This list of attributes is sorted from the most significant (_Heady_ with a _p-value_ of 7.74e-57) to the less (but still) significant (_Citrus_ with a _p-value_ of 6.07e-03).
-
-As expressed by the p-values that are singularly small, products have been extremely differentiated by the panelists: it seems that some attributes, such as _Heady_ or _Greedy_, are really specific to some products
-
-# Exercices 
-
-**Exercise 1**
+# Let's understand ANOVA
 
 Let's considere this table of ANOVA :
 <center><img src="/anova-table.png" width="50%" /></center>
@@ -106,16 +99,14 @@ With it, complete this table :
 <codeblock id="24_01">
 </codeblock>
 
-**Exercise 2**
-
 The purpose of a variance analysis (ANOVA) is to test if the variances of the subpopulations corresponding to the expression levels of the factor are equal.
 
 <choice id=3>
 <opt text="True">
-This is not the correct answer.
+This is not a question of variances.
 </opt>
 <opt text="False" correct="true">
-Good job!
+The purpose of a variance analysis (ANOVA) is to test if the average effect of the subpopulations corresponding to the expression levels of the factor are equal.
 </choice>
 
 Let's considere :

@@ -55,11 +55,11 @@ Notes: This very important step makes it possible to compare individuals with ea
 
 From this first centered-reduced table, it is already possible to draw hypotheses on the groups of individuals.
 
-<center><img src="/analyse_tab_cr.JPG" alt="analyse tableau cr" width="75%" /></center>
+<center><img src="/analyse_tab_cr.JPG" alt="analyse tableau cr" width="55%" /></center>
 
 With this information we can already imagine the plan of individuals.
 
-<center><img src="/ACP_main.png" alt="ACP à la main" width="45%" /></center>
+<center><img src="/ACP_main.png" alt="ACP à la main" width="35%" /></center>
 
 Notes: We see here that _Angel_ and _Coco Mademoiselle_ have same values for the sensory attribut _Camomille_. We can already assume that they belong to the same group. Next, _Cinéma_ and _J'adore EP_ have similar values for _Freshness_ and _Jasmin_ so we can create a second group.
 By opting for this groups and by placing them in any reference we can deduce the position of the other individuals.
