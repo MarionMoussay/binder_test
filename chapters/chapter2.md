@@ -3,7 +3,7 @@ title: 'Lesson 3 : Relation between PCA and MFA'
 description:
   ''
 prev: /chapter1
-next: null
+next: /chapter3
 type: chapter
 id: 3
 ---
@@ -216,7 +216,7 @@ We are going to represent the square of Lg measure between the first table <img 
 First, we need to discuss about the relative position of each point:
 <choice>
 <opt text="Superposed" correct="true">
-Correct! As we run a PCA on the same tables, the principal component of the MFA is the same 
+Correct! As we run a PCA on the same tables, the principal component of the each PCA is the solution of the maximisation problem. Hence, The Lg measure between <img style="margin-bottom: -0.5rem" src="https://render.githubusercontent.com/render/math?math=\large X_{1}"> and <img style="margin-bottom: -0.5rem" src="https://render.githubusercontent.com/render/math?math=\large X_{2}"> is equal to 1. 
 </opt>
 <opt text="On the same x-axis but y-axis different">
 </opt>
@@ -224,10 +224,15 @@ Correct! As we run a PCA on the same tables, the principal component of the MFA 
 </opt>
 <opt text="Independant position">
 </opt>
+
 </choice>
 
 </exercise>
 
+<exercise id=8 title="A particular MFA: the HMFA">
+HMFA is an extension of MFA to the case where variables are structured
+according to a hierarchy.
+</exercise>
 <exercise id="0" title="Reminders on PCA and MFA with FactoMineR" type="slides">
 <slides source="chapter2_02">
 </slides>
