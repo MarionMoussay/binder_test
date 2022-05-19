@@ -1,11 +1,11 @@
 ---
-title: 'Lesson 2 : Relation between PCA and MFA'
+title: 'Lesson 3 : Relation between PCA and MFA'
 description:
   ''
 prev: /chapter1
 next: null
 type: chapter
-id: 2
+id: 3
 ---
 
 <exercise id="1" title="Data and objectives" type="slides">

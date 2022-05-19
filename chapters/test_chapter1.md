@@ -1,13 +1,4 @@
----
-title: 'Lesson 1 : When products are rated according to a single list of attributes'
-description:
-  'This chapter will teach you about many cool things and introduce you to the
-  most important concepts of the course.'
-prev: null
-next: /chapter2
-type: chapter
-id: 1
----
+
 
 <exercise id="1" title="How can I get a list of the sensory attributes that structure the product space?">
 
@@ -224,12 +215,12 @@ Bad choice.
 Good job!
 </choice>
 
+
+
+</exercise>
 <exercise id="2_3" title="Exercices">
 Exercice 2.4 and 2.5
 </exercise>
-
-</exercise>
-
 <exercise id="2_4" title="Contrasts in Analysis of Variance">
 
 Analyses of Variance are used to evaluate the significance of one or more factors on a continuous variable. The global significance of each factor is evaluated through the F-test. Additionally, the significance of the different levels within each factor is evaluated through the t-test. Usually, this additional step tests whether the coefficients ![formula](https://render.githubusercontent.com/render/math?math=\alpha_{i}), associated with the ith level of the categorical variable of interest, are significantly different from 0. Without loss of generality, let us consider the simplest ANOVA model in which one continuous variable is explained by one categorical variable:
@@ -455,13 +446,13 @@ The supplementary continuous variables are represented within the variables repr
 
 As evoked previously, the representation of the individuals on a factorial plane can be misleading. Indeed, when individuals are represented in a subspace of lower dimensionality than the original space RJ , distances amongst individuals are necessarily reduced. This is the price to pay to visualize the individuals. Obviously, this remark is transposable to variables. Based on this observation, how is it possible to find a way to enhance the representation of the distances between individuals and between variables?
 
-One possible solution is to represent confidence areas around the individuals and around the variables. To do so, several strategies can be applied. The one explained in this section is implemented in the panellipse function of the SensoMineR package. The idea of the ellipses is based on the following question: How would the positioning of the perfumes evolve if we would slightly change the composition of the panel?
+One possible solution is to represent confidence areas around the individuals and around the variables. To do so, several strategies can be applied. The one explained in this section is implemented in the panellipse function of the SensoMineR package. The idea of the ellipses is based on the following question: How would the positioning of the perfumes evolve if we would slightly change the composition of the panel?
 
 To answer this question, the original idea was to generate virtual panels from the original data using simulations. To do so, new panels Pi are obtained by sampling panelists with replacement, from the original pool of panelists. For each new virtual panel ![formula](https://render.githubusercontent.com/render/math?math=P_{i}), a new matrix of sensory profiles, denoted ![formula](https://render.githubusercontent.com/render/math?math=X_{P_{i}}), is calculated. Each data set ![formula](https://render.githubusercontent.com/render/math?math=X_{P_{i}}) (associated with the virtual panel Pi) is then combined vertically to the original data set X of sensory profiles, and is projected as a supplementary matrix of illustrative individuals in the original space obtained by PCA on _X_.
 
 Ellipses including 95% of the products associated with the virtual panels are created around each product.
 
-This is the procedure that is automatically performed by the panellipse function of the *SensoMineR* package. To run the panellipse function, the position of the column related to the product information (`col.p`), the panelist information (`col.j`), and the attributes (firstvar and lastvar) should be informed. Regarding the attributes, the argument level.search.desc discards all the attributes for which the Product effect is associated with a p-value larger than the threshold defined (by default 0.2; use 1 to keep all the variables in the analysis). Let’s apply this analysis on the experts data set used throughout this chapter.
+This is the procedure that is automatically performed by the panellipse function of the *SensoMineR* package. To run the panellipse function, the position of the column related to the product information (`col.p`), the panelist information (`col.j`), and the attributes (`firstvar` and `lastvar`) should be informed. Regarding the attributes, the argument `level.search.desc` discards all the attributes for which the Product effect is associated with a p-value larger than the threshold defined (by default 0.2; use 1 to keep all the variables in the analysis). Let’s apply this analysis on the experts data set used throughout this chapter.
 
 <codeblock id="31_01">
 </codeblock>
