@@ -1,7 +1,7 @@
 ---
 title: 'Lesson 1 : ANOVA or how to define the product space'
 prev: null
-next: /chapter3
+next: /chapter2
 type: chapter
 id: 1
 ---
@@ -165,6 +165,7 @@ For the factor produced, find the calculation of the F test statistic and mean s
 </exercise>
 
 <exercise id="3" title="Let's practice!">
+Exercice 2.4 and 2.5
 
 </exercise>
 
