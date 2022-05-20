@@ -136,13 +136,15 @@ Look at the second dimension, what's the pourcentage of variability ?
 
 <exercise id="4" title="Why using complementary information?">
 
+A a reminder, PCA function has this arguments : `ind.sup`, `quanti.sup` and `quali.sup`. What are they for? 
+
 # Introduction to supplementary information
 
 The concept of supplementary information (also called illustrative information), as well as its representation, is of utmost importance when exploring multivariate data. The idea behind the notion of supplementary elements consists in projecting additional rows and/or columns in the plane obtained from PCA performed on the “original” matrix _X_, in order to see how these additional elements connect to _X_, but without taking this additional information into account in the construction of the dimensions. Let’s denote by _X+_ the supplementary rows and by _X+_ the supplementary columns. In practice, these two matrices _X+_ and _X+_ are projected on the vectors ![formula](https://render.githubusercontent.com/render/math?math=u_{s}) and ![formula](https://render.githubusercontent.com/render/math?math=v_{s}), respectively, after the PCA has been applied to _X_.
 
 In terms of variables, supplementary information can either be continuous or categorical. As PCA only uses continuous variables in the calculation of the distances between individuals, categorical variables can only be considered as supplementary. For continuous variables, determining whether they are illustrative or not is arbitrary, and depends on the point of view adopted. Often, continuous variables are considered as supplementary if they are from a different nature (e.g., the liking variable in the sensory space). Similarly, the definition of supplementary entities is arbitrary and depends on both the point of view and the sensory issue tackled.
 
-To illustrate this feature, the data collected by C. Asselin and R. Morlat (INRA, Angers, France), who studied the effect of the soil on the quality of the wine produced in the Loire Valley, are used. These data were used by B. Escofier and J. Pag`es to illustrate Multiple Factor Analysis in their paper entitled “Multiple factor analysis (AFMULT package),” published in _Computational Statistics & Data Analysis_ in 1984. The data can be found either in the book website or in the SensoMineR package.
+To illustrate this feature, the data collected by C. Asselin and R. Morlat (INRA, Angers, France), who studied the effect of the soil on the quality of the wine produced in the Loire Valley, are used. These data were used by B. Escofier and J. Pagès to illustrate Multiple Factor Analysis in their paper entitled “Multiple factor analysis (AFMULT package),” published in _Computational Statistics & Data Analysis_ in 1984. The data can be found either in the book website or in the SensoMineR package.
 
 In the data set, 21 wines are described by 31 variables, amongst which are 29 continuous variables and 2 categorical variables. The 29 continuous variables are made up of 27 sensory attributes and 2 other variables of a slightly different nature, one measuring the overall quality of the wine and the other one measuring the typicality of the wine. The 2 categorical variables are related to the origin of the wine (its appellation) and the nature of the soil on which the grape was produced.
 
@@ -151,12 +153,12 @@ The general idea behind the study is to understand the set of wines regarding th
 <codeblock id="27_01">
 </codeblock>
 
-Based on this output, it can be seen that the supplementary categorical variables are the first two variables, and the supplementary continuous variables are the two last variables. Through the quanti.sup and quali.sup arguments of the PCA function, we specify the appropriate role of each variable in the analysis.
+Based on this output, it can be seen that the supplementary categorical variables are the first two variables, and the supplementary continuous variables are the two last variables. Through the `quanti.sup` and `quali.sup` arguments of the PCA function, we specify the appropriate role of each variable in the analysis.
 
 <codeblock id="28_01">
 </codeblock>
 
-Besides the features previously shown, the plot.PCA function also allows representing, in a convenient way, the supplementary variables through its col.quali, col.quanti, habillage, and col.hab arguments.
+Besides the features previously shown, the plot.PCA function also allows representing, in a convenient way, the supplementary variables through its `col.quali`, `col.quanti`, `habillage`, and `col.hab` arguments.
 In PCA, categorical supplementary information is represented on the individuals factor map. The representation of these categories is obtained by calculating the center of gravity of the individuals belonging to each category in question. This can be illustrated using the following code:
 
 <codeblock id="29_01">
@@ -195,5 +197,10 @@ This idea of representing confidence areas can be used to answer a recurrent sen
 <exercise id="5" title="Let's practice">
 
 Exercice 2.6 and 2.7
+
+</exercise>
+
+<exercise id="6" title="Algebraic vision of PCA">
+PCA à l'anglaise
 
 </exercise>

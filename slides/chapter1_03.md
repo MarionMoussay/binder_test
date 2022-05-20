@@ -14,7 +14,7 @@ res.pca <- PCA(donnee, scale.unit = TRUE, ncp = 5, ind.sup = NULL,quanti.sup = N
 ```
 - `donnee` : a data frame with n rows (individuals) and p columns (numeric variables)
 - `ncp` : number of dimensions kept in the results (by default 5)
-- `scale.unit` :  if TRUE (value set by default) then data are scaled to unit variance
+- `scale.unit` :  if TRUE (value set by default) then data are scaled to unit variance, we see before why it's important to scale or not
 - `ind.sup` : a vector indicating the indexes of the supplementary individuals
 - `quanti.sup` : a vector indicating the indexes of the quantitative supplementary variables
 - `quali.sup` : a vector indicating the indexes of the categorical supplementary variables
