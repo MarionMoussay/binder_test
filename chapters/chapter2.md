@@ -23,9 +23,37 @@ The general idea is to represent the scatter plot of the individuals, ![formula]
 
 Geometrically, PCA simply consists in changing the frame of reference, by representing the cloud of points ![formula](https://render.githubusercontent.com/render/math?math=N_{i}) (resp. ![formula](https://render.githubusercontent.com/render/math?math=N_{j})), usually defined in ![formula](https://render.githubusercontent.com/render/math?math=\mathbb{R}^{j}) (resp. ![formula](https://render.githubusercontent.com/render/math?math=\mathbb{R}^{i})), into a lower-dimensional subspace. The objective is then to represent individuals in a vector sub-space ![formula](https://render.githubusercontent.com/render/math?math=F_{k}) of ![formula](https://render.githubusercontent.com/render/math?math=\mathbb{R}^{j}) of dimension _k_. 
 
-## Inertia and variance-covariance matrix
+## Using *FactoMineR*
 
-First, we will work on the matrix using results in `res.decat$adjmean` build in the last part.
+# PCA function 
+
+The PCA function is then applied directly on the sensory profiles of the products, i.e., `res.decat$adjmean`. We store the results in an object called `res.pca`. As usual, the names of the different objects saved in res.pca are obtained using the names function.
+
+<codeblock id="16_01">
+</codeblock>
+
+The representation of the perfumes is based on the coordinates of the individuals stored in `res.pca$ind$coord`. This result is supported by the following output, which highlights the contribution of the products to the construction of the components (note that the sum of the contributions across products equals 100 for a given component).
+
+<codeblock id="18_01">
+</codeblock>
+
+# Construction of axes
+
+The constructed axes are the orthonormed eigenvectors of the _pxp_ matrix of the linear correlations of the variables. We can obtain these values with `res.pca$svd$V`. By default the matrix size is _p x 5_ according to the `ncp` argument of the PCA function which is 5 by default. Try to find the matrix of `res.pca$svd$V` by working the matrix of correlations of `res.decat$adjmean` :
+
+<codeblock id="19_01">
+</codeblock>
+
+We call these axes ![formula](https://render.githubusercontent.com/render/math?math=C_{i}). The main components that make up the created axes are of the form ![formula](https://render.githubusercontent.com/render/math?math=C_{i} = a_{i}^{1}X_{1}) + ![formula](https://render.githubusercontent.com/render/math?math=a_{i}^{2}X_{2}) + ... + ![formula](https://render.githubusercontent.com/render/math?math=a_{i}^{p}X_{p}) such as ![formula](https://render.githubusercontent.com/render/math?math=C_{i}), a formed _i_ axis, must contain as much information as possible, that is, it must disperse the observations as much as possible. This axis is constructed such as when the coordinates of the individuals are projected on it, the coordinates are as scattered as possible and therefore the variance of these projected coordinates is maximum. The axes are non-correled because they must one by one bring new information that another axis does not have. 
+
+The sum of these coefficients weighted by the number of individuals represents the variance of a constructed axis. It also corresponds to the eigenvalue associated with the first axis ![formula](https://render.githubusercontent.com/render/math?math=(Var(F_{j})= \frac{1}{n}\sum_{i=1}^{p} c_{i}=\lambda_{j})) with ![formula](https://render.githubusercontent.com/render/math?math=c_{i}) the projected coordinates on the axis _i_ of ![formula](https://render.githubusercontent.com/render/math?math=F_{j}). Can you try to code it to be sur ?
+
+<codeblock id="20_01">
+</codeblock>
+
+## Understand inertia 
+
+Let's use the `res.decat$adjmean` matrix like before.
 
 <codeblock id="11_01">
 </codeblock>
@@ -61,35 +89,8 @@ Inertia is the number of variables in the case of a reduced centered matrix.
 ![formula](https://render.githubusercontent.com/render/math?math=\Leftrightarrow \sum_{j=1}^{p} \frac{1}{n}\sum_{i=1}^{n}(x_{ij}-x_{.j})^{2}))
 ![formula](https://render.githubusercontent.com/render/math?math=\Leftrightarrow \sum_{j=1}^{p} Var(X_{j}))
 
-## Using *FactoMineR*
 
-# PCA function 
-
-The PCA function is then applied directly on the sensory profiles of the products, i.e., `res.decat$adjmean`. We store the results in an object called `res.pca`. As usual, the names of the different objects saved in res.pca are obtained using the names function.
-
-<codeblock id="16_01">
-</codeblock>
-
-The representation of the perfumes is based on the coordinates of the individuals stored in `res.pca$ind$coord`. This result is supported by the following output, which highlights the contribution of the products to the construction of the components (note that the sum of the contributions across products equals 100 for a given component).
-
-<codeblock id="18_01">
-</codeblock>
-
-# Construction of axes
-
-The constructed axes are the orthonormed eigenvectors of the _pxp_ matrix of the linear correlations of the variables. We can obtain these values with `res.pca$svd$V`. Let’s check to be sure: 
-
-<codeblock id="19_01">
-</codeblock>
-
-We call these axes ![formula](https://render.githubusercontent.com/render/math?math=C_{i}). The main components that make up the created axes are of the form ![formula](https://render.githubusercontent.com/render/math?math=C {i} = a_{i}^{1}X_{1}) + ![formula](https://render.githubusercontent.com/render/math?math=a_{i}^{2}X_{2}) + ... + ![formula](https://render.githubusercontent.com/render/math?math=a_{i}^{p}X_{p}) such as ![formula](https://render.githubusercontent.com/render/math?math=C_{i}), a formed _i_ axis, must contain as much information as possible, that is, it must disperse the observations as much as possible. To make this axis is telque when the coordinates of the individuals are projected on it, the coordinates are as scattered as possible and therefore the variance of these projected coordinates is maximum. The axes are non-correled because they must one by one bring new information that another axis does not have. 
-
-The sum of these coefficients weighted by the number of individuals represents the variance of a constructed axis. It also corresponds to the eigenvalue associated with the first axis : [formula](https://render.githubusercontent.com/render/math?math=Var(F_{j})=  frac{1}{n} sum_{i=1} {p} c_{i} {j} =  lambda_{j}) with ![formula](https://render.githubusercontent.com/render/math?math=c_{i} {j}) the projected coordinates on the axis _i_ of ![formula](https://render.githubusercontent.com/render/math?math=F_{j}). Can you try to code it to be sur ?
-
-<codeblock id="20_01">
-</codeblock>
-
-Link to the previous part and write inertia according to eigenvalues. 
+With the results of pca, write inertia according to eigenvalues. 
 
 <codeblock id="21_01">
 
@@ -140,9 +141,15 @@ A a reminder, PCA function has this arguments : `ind.sup`, `quanti.sup` and `qua
 
 # Introduction to supplementary information
 
-The concept of supplementary information (also called illustrative information), as well as its representation, is of utmost importance when exploring multivariate data. The idea behind the notion of supplementary elements consists in projecting additional rows and/or columns in the plane obtained from PCA performed on the “original” matrix _X_, in order to see how these additional elements connect to _X_, but without taking this additional information into account in the construction of the dimensions. Let’s denote by _X+_ the supplementary rows and by _X+_ the supplementary columns. In practice, these two matrices _X+_ and _X+_ are projected on the vectors ![formula](https://render.githubusercontent.com/render/math?math=u_{s}) and ![formula](https://render.githubusercontent.com/render/math?math=v_{s}), respectively, after the PCA has been applied to _X_.
+### What's the concept?
 
-In terms of variables, supplementary information can either be continuous or categorical. As PCA only uses continuous variables in the calculation of the distances between individuals, categorical variables can only be considered as supplementary. For continuous variables, determining whether they are illustrative or not is arbitrary, and depends on the point of view adopted. Often, continuous variables are considered as supplementary if they are from a different nature (e.g., the liking variable in the sensory space). Similarly, the definition of supplementary entities is arbitrary and depends on both the point of view and the sensory issue tackled.
+The concept of supplementary information (also called illustrative information), as well as its representation, is of utmost importance when exploring multivariate data. The idea behind the notion of supplementary elements consists in projecting additional rows and/or columns in the plane obtained from PCA performed on the “original” matrix _X_, in order to see how these additional elements connect to _X_, but without taking this additional information into account in the construction of the dimensions. 
+
+- `ind.supp` : individuals or variables may be considered illustrative (additional). This makes it possible to take better account of the data collection and its context. An **individual** may be considered additional and therefore not participate in the calculation of the axes if he is an outlier in relation to the sample for example. Generally speaking, to consider an individual as illustrative is to give it a weighting of zero but still represent it ; 
+- `quanti.sup`, `quali.sup` : the **additional variables** provide some expertise in reading the results. A variable is chosen as illustrative from the moment it can be considered as an explanatory factor for the result of another variable. It nevertheless appears in the circle of correlation without participating in the construction of axes. 
+
+
+### Illustration
 
 To illustrate this feature, the data collected by C. Asselin and R. Morlat (INRA, Angers, France), who studied the effect of the soil on the quality of the wine produced in the Loire Valley, are used. These data were used by B. Escofier and J. Pagès to illustrate Multiple Factor Analysis in their paper entitled “Multiple factor analysis (AFMULT package),” published in _Computational Statistics & Data Analysis_ in 1984. The data can be found either in the book website or in the SensoMineR package.
 
