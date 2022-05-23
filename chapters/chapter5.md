@@ -1,5 +1,5 @@
 ---
-title: 'Lesson 4 : Napping to sorted Napping'
+title: 'Lesson 5 : Napping'
 description:
   ''
 prev: /chapter4
@@ -80,4 +80,7 @@ The first step was to divide each group by the first own value of its non-standa
 
 This space opposes, on the first dimension, _Aromatics Elixir_, _Chanel N5_, and _Shalimar_ to the rest of the products. The second dimension opposes _Angel_ and _Lolita Lempicka_ to _Pleasures_ and _Chanel N5_. However, the sole representation of the products does not speak for itself unless the analyst has a great expertise on the products (hence the need of integrating supplementary information, if available).
 
+</exercise>
+
+<exercise id="3" title="Introducing supplementary information">
 </exercise>
